@@ -10,37 +10,32 @@
 :root {
   --gold: #d4a843;
   --gold-light: #f0d98a;
-  --gold-dim: rgba(212,168,67,0.45);
   --purple-dark: #2a1038;
-  --purple-bg: #1a0826;
   --card-bg: rgba(26,8,40,0.52);
   --text: rgba(255,248,242,0.95);
   --text-soft: rgba(255,248,242,0.72);
 }
 html, body {
   width: 100%;
-  margin: 0;
-  padding: 0;
-  background: var(--purple-bg);
+  margin: 0; padding: 0;
+  background: #1a0826;
   overflow-x: hidden;
 }
 
+/* La pagina è sempre alta almeno 2400px su mobile —
+   abbastanza per dare l'idea di 3 "schermate" */
 #page {
   position: relative;
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
-  /* altezza = larghezza * ratio immagine (2.187),
-     ma almeno 170vw così su mobile è sempre alta abbastanza */
-  height: calc(min(100vw, 520px) * 2.187);
-  min-height: 170vw;
+  height: max(calc(min(100vw, 520px) * 2.187), 2400px);
 }
 
 #bgImg {
   position: absolute;
   top: 0; left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   object-fit: cover;
   object-position: center top;
   display: block;
@@ -53,42 +48,46 @@ html, body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 5% 5%;
+  padding: 60px 24px 60px;
 }
 
 .section {
   width: 100%;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.names-block { text-align: center; }
+/* NOMI */
 .names {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(2.4rem, 11vw, 5rem);
+  font-size: 72px;
   color: var(--purple-dark);
   line-height: 1.1;
+  text-align: center;
   text-shadow:
     0 0 30px rgba(255,255,255,1),
     0 0 15px rgba(255,255,255,0.9),
-    0 2px 6px rgba(255,255,255,0.7);
+    0 2px 8px rgba(255,255,255,0.7);
 }
 .amp {
   display: block;
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(1.4rem, 6vw, 2.8rem);
+  font-size: 44px;
   color: var(--purple-dark);
   opacity: 0.65;
   text-shadow: 0 0 20px rgba(255,255,255,0.9);
-  margin: -4px 0;
+  margin: -6px 0;
+  text-align: center;
 }
 
+/* CARD */
 .card {
   background: var(--card-bg);
-  border: 1px solid rgba(212,168,67,0.35);
-  border-radius: 8px;
-  padding: 4% 5%;
+  border: 1px solid rgba(212,168,67,0.38);
+  border-radius: 14px;
+  padding: 28px 28px;
   width: 100%;
   text-align: center;
   backdrop-filter: blur(10px);
@@ -97,18 +96,18 @@ html, body {
 .label {
   display: block;
   font-family: 'Lato', sans-serif;
-  font-size: clamp(0.45rem, 1.8vw, 0.58rem);
+  font-size: 11px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 6px;
+  margin-bottom: 14px;
 }
 .card p {
   font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-style: italic;
-  font-size: clamp(0.82rem, 3.2vw, 1.05rem);
-  line-height: 1.75;
+  font-size: 20px;
+  line-height: 1.85;
   color: var(--text);
 }
 .card p strong {
@@ -120,27 +119,28 @@ html, body {
   font-style: normal;
   font-weight: 300;
   color: var(--text-soft);
-  font-size: clamp(0.72rem, 2.8vw, 0.9rem);
+  font-size: 16px;
 }
 
+/* BOTTONI */
 .buttons {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 8px;
+  gap: 14px;
 }
 .btn {
   display: block;
   width: 100%;
   font-family: 'Lato', sans-serif;
-  font-size: clamp(0.62rem, 2.4vw, 0.75rem);
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
-  padding: 3.5% 4%;
-  border-radius: 4px;
+  padding: 18px 20px;
+  border-radius: 6px;
   border: 1px solid rgba(212,168,67,0.48);
   color: var(--gold-light);
   background: var(--card-bg);
@@ -156,15 +156,17 @@ html, body {
 .btn-primary {
   background: rgba(212,168,67,0.18);
   border-color: var(--gold);
+  font-size: 14px;
 }
 
+/* CHIUSURA */
 .closing {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(1.6rem, 7vw, 2.4rem);
+  font-size: 52px;
   color: var(--gold-light);
   text-align: center;
   line-height: 1.4;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.7);
 }
 </style>
 </head>
@@ -176,9 +178,7 @@ html, body {
   <div id="content">
 
     <div class="section">
-      <div class="names-block">
-        <div class="names">Erika<span class="amp">&amp;</span>Elisabetta</div>
-      </div>
+      <div class="names">Erika<span class="amp">&amp;</span>Elisabetta</div>
     </div>
 
     <div class="section">
@@ -224,7 +224,7 @@ html, body {
     </div>
 
     <div class="section">
-      <p class="closing">Non vediamo l'ora di vedervi! 🏮</p>
+      <p class="closing">Non vediamo l'ora<br>di vedervi! 🏮</p>
     </div>
 
   </div>
