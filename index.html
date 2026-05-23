@@ -13,7 +13,8 @@
   --gold-dim: rgba(212,168,67,0.45);
   --purple-dark: #2a1038;
   --purple-bg: #1a0826;
-  --card-bg: rgba(20,5,35,0.45); /* Aumentato leggermente per migliorare la leggibilità sullo sfondo */
+  /* Colore di sfondo delle caselle: scuro ma con forte trasparenza */
+  --card-bg: rgba(20, 5, 35, 0.65); 
   --text: rgba(255,248,242,0.97);
   --text-soft: rgba(255,248,242,0.80);
 }
@@ -21,6 +22,7 @@ html, body {
   width: 100%; margin: 0; padding: 0;
   background: var(--purple-bg);
   overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
 }
 #page {
   position: relative;
@@ -30,17 +32,18 @@ html, body {
   min-height: 100vh;
   padding-bottom: 40px;
 }
+/* Immagine di sfondo fissa */
 #bgImg {
-  position: fixed; /* Cambiato in fixed per un fantastico effetto scorrimento */
+  position: fixed;
   top: 0; left: 50%;
   transform: translateX(-50%);
   width: 100%; height: 100%;
   max-width: 520px;
-  object-fit: cover; /* Cambiato in cover per non distorcere l'immagine originale */
+  object-fit: cover;
   display: block;
-  z-index: -1;
+  z-index: -2; /* Dietro a tutto */
 }
-/* Sfumatura scura per rendere il testo ancora più leggibile */
+/* Il "velo" scuro sopra l'immagine */
 #page::after {
   content: "";
   position: fixed;
@@ -48,15 +51,9 @@ html, body {
   transform: translateX(-50%);
   width: 100%; height: 100%;
   max-width: 520px;
-  background: linear-gradient(
-    to bottom,
-    rgba(10,2,20,0.30) 0%,
-    rgba(10,2,20,0.15) 30%,
-    rgba(10,2,20,0.15) 70%,
-    rgba(10,2,20,0.40) 100%
-  );
+  background: rgba(15, 5, 25, 0.45); /* Velo scuro uniforme */
   pointer-events: none;
-  z-index: 0;
+  z-index: -1; /* Sopra l'immagine, sotto i contenuti */
 }
 #content {
   position: relative;
@@ -64,8 +61,8 @@ html, body {
   flex-direction: column;
   align-items: center;
   padding: 8% 5% 5%;
-  gap: 35px; /* Spaziatura uniforme tra le sezioni */
-  z-index: 1;
+  gap: 35px;
+  z-index: 1; /* Il contenuto è in primo piano */
 }
 .section {
   width: 100%;
@@ -76,49 +73,50 @@ html, body {
 }
 .names {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(2.8rem, 12vw, 5rem);
-  color: #ffffff; /* Modificato in bianco per risaltare sullo sfondo scuro dell'immagine */
+  font-size: clamp(2.8rem, 12vw, 4.5rem);
+  color: #ffffff;
   line-height: 1.1;
   text-align: center;
-  text-shadow:
-    0 0 20px rgba(42,16,56,0.8),
-    0 2px 6px rgba(0,0,0,0.5);
+  text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+  margin-bottom: 10px;
 }
 .amp {
   display: block;
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(1.6rem, 6.5vw, 2.8rem);
+  font-size: clamp(1.6rem, 6.5vw, 2.5rem);
   color: var(--gold-light);
-  margin: -4px 0;
+  margin: -5px 0;
   text-align: center;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
 }
+/* Stile delle caselle di testo */
 .card {
   background: var(--card-bg);
-  border: 1px solid rgba(212,168,67,0.40);
-  border-radius: 10px;
+  border: 1px solid rgba(212,168,67,0.50); /* Bordo dorato */
+  border-radius: 12px;
   padding: 6% 5%;
   width: 100%;
   text-align: center;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 4px 25px rgba(0,0,0,0.45);
+  /* Effetto sfocato dietro la casella (solo per dispositivi che lo supportano) */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 .label {
   display: block;
   font-family: 'Lato', sans-serif;
-  font-size: clamp(0.48rem, 1.8vw, 0.6rem);
-  letter-spacing: 0.30em;
+  font-size: clamp(0.55rem, 2vw, 0.7rem);
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 15px;
+  font-weight: 400;
 }
 .card p {
-  font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-style: italic;
-  font-size: clamp(0.9rem, 3.5vw, 1.08rem);
-  line-height: 1.85;
+  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  line-height: 1.7;
   color: var(--text);
 }
 .card p strong {
@@ -128,8 +126,9 @@ html, body {
 .card p .small {
   font-style: normal; font-weight: 300;
   color: var(--text-soft);
-  font-size: clamp(0.78rem, 3vw, 0.92rem);
+  font-size: clamp(0.8rem, 3vw, 0.9rem);
 }
+/* Timeline */
 .timeline {
   width: 100%;
   display: flex;
@@ -151,9 +150,8 @@ html, body {
   flex-shrink: 0;
 }
 .tl-time {
-  font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: clamp(0.75rem, 3vw, 0.9rem);
+  font-size: clamp(0.8rem, 3vw, 0.95rem);
   color: var(--gold);
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -188,90 +186,75 @@ html, body {
   padding-top: 0px;
 }
 .tl-event {
-  font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(0.82rem, 3.2vw, 0.98rem);
+  font-size: clamp(0.9rem, 3.2vw, 1.05rem);
   color: var(--text);
   line-height: 1.4;
 }
 .tl-desc {
-  font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-style: italic;
-  font-size: clamp(0.7rem, 2.6vw, 0.82rem);
+  font-size: clamp(0.75rem, 2.6vw, 0.85rem);
   color: var(--text-soft);
-  margin-top: 1px;
+  margin-top: 2px;
 }
+/* Mappa SVG */
 .map-wrap {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
   border: 1px solid rgba(212,168,67,0.35);
+  margin-bottom: 10px;
 }
 .map-wrap svg {
   display: block;
   width: 100%;
   height: auto;
 }
-.map-btn {
+/* Bottoni in generale */
+.btn-action {
   display: block;
   width: 100%;
-  font-family: 'Lato', sans-serif;
-  font-size: clamp(0.65rem, 2.5vw, 0.76rem);
+  font-size: clamp(0.7rem, 2.5vw, 0.8rem);
   font-weight: 400;
-  letter-spacing: 0.20em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
-  padding: 12px 16px;
+  padding: 14px 16px;
+  border-radius: 6px;
+  color: var(--gold-light);
   background: rgba(212,168,67,0.15);
-  border-top: 1px solid rgba(212,168,67,0.3);
-  color: var(--gold-light);
-  transition: background 0.22s;
+  border: 1px solid rgba(212,168,67,0.5);
+  transition: all 0.2s ease;
+  margin-bottom: 12px;
 }
-.map-btn:hover, .map-btn:active {
-  background: rgba(212,168,67,0.82);
-  color: var(--purple-dark);
-}
-.buttons { display: flex; flex-direction: column; width: 100%; gap: 10px; }
-.btn {
-  display: block; width: 100%;
-  font-family: 'Lato', sans-serif;
-  font-size: clamp(0.65rem, 2.5vw, 0.76rem);
-  font-weight: 400;
-  letter-spacing: 0.20em;
-  text-transform: uppercase;
-  text-align: center;
-  text-decoration: none;
-  padding: 4% 4%;
-  border-radius: 4px;
-  border: 1px solid rgba(212,168,67,0.48);
-  color: var(--gold-light);
-  background: var(--card-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  -webkit-tap-highlight-color: transparent;
-  transition: background 0.22s, color 0.22s;
-}
-.btn:hover, .btn:active {
+.btn-action:hover, .btn-action:active {
   background: rgba(212,168,67,0.85);
   color: var(--purple-dark);
 }
+.buttons-row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+}
 .closing {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(1.8rem, 7.5vw, 2.6rem);
+  font-size: clamp(2rem, 7.5vw, 2.8rem);
   color: var(--gold-light);
   text-align: center;
-  line-height: 1.4;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+  line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+  margin: 10px 0;
 }
 </style>
 </head>
 <body>
 
 <div id="page">
-  <img id="bgImg" src="https://i.imgur.com/lMAnKz0.png" style="background:#2a0a40;" alt="Illustrazione acquerello lanterne matrimonio">
+  <img id="bgImg" src="https://i.imgur.com/RcXItON.jpeg" alt="Sfondo Rapunzel">
   
   <div id="content">
 
@@ -342,8 +325,8 @@ html, body {
     </div>
 
     <div class="section">
-      <div class="card" style="padding:0; overflow:hidden;">
-        <span class="label" style="display:block; padding: 14px 5% 0;">🗺️ Come arrivare</span>
+      <div class="card" style="padding-bottom: 5%;">
+        <span class="label">🗺️ Come arrivare</span>
         <div class="map-wrap">
           <svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg" style="background:#1e0a30;">
             <defs>
@@ -363,15 +346,13 @@ html, body {
             <circle cx="340" cy="25" r="0.8" fill="#f0d98a" opacity="0.4"/>
             <circle cx="160" cy="5" r="0.6" fill="#f0d98a" opacity="0.5"/>
             <circle cx="280" cy="30" r="0.6" fill="#f0d98a" opacity="0.4"/>
-            <path d="M0,155 Q90,145 180,158 Q270,170 360,155 L360,180 Q270,195 180,182 Q90,168 0,178 Z"
-                  fill="#2a4a7a" opacity="0.5"/>
+            <path d="M0,155 Q90,145 180,158 Q270,170 360,155 L360,180 Q270,195 180,182 Q90,168 0,178 Z" fill="#2a4a7a" opacity="0.5"/>
             <line x1="30" y1="120" x2="330" y2="120" stroke="#4a3060" stroke-width="8"/>
             <line x1="30" y1="120" x2="330" y2="120" stroke="#5a3870" stroke-width="6"/>
             <line x1="180" y1="60" x2="180" y2="155" stroke="#3a2050" stroke-width="6"/>
             <line x1="0" y1="90" x2="120" y2="120" stroke="#3a2050" stroke-width="5"/>
             <line x1="240" y1="120" x2="360" y2="95" stroke="#3a2050" stroke-width="5"/>
-            <text x="180" y="116" font-family="sans-serif" font-size="7" fill="#c8a8d8"
-                  text-anchor="middle" opacity="0.9">Via Capitello</text>
+            <text x="180" y="116" font-family="sans-serif" font-size="7" fill="#c8a8d8" text-anchor="middle" opacity="0.9">Via Capitello</text>
             <g opacity="0.8">
               <circle cx="130" cy="90" r="10" fill="#1a4a20"/>
               <circle cx="145" cy="85" r="8" fill="#1e5a24"/>
@@ -401,10 +382,8 @@ html, body {
               </circle>
             </g>
             <rect x="120" y="132" width="120" height="18" rx="4" fill="#2a1038" opacity="0.85"/>
-            <text x="180" y="144" font-family="sans-serif" font-size="8.5" fill="#f0d98a"
-                  text-anchor="middle" font-weight="bold">Parco Gambrinus</text>
-            <text x="180" y="172" font-family="sans-serif" font-size="7" fill="#c8a8d8"
-                  text-anchor="middle" opacity="0.7">San Polo di Piave (TV)</text>
+            <text x="180" y="144" font-family="sans-serif" font-size="8.5" fill="#f0d98a" text-anchor="middle" font-weight="bold">Parco Gambrinus</text>
+            <text x="180" y="172" font-family="sans-serif" font-size="7" fill="#c8a8d8" text-anchor="middle" opacity="0.7">San Polo di Piave (TV)</text>
             <g transform="translate(320,50)" opacity="0.7">
               <rect x="-5" y="0" width="10" height="14" rx="2" fill="#f0d98a" opacity="0.9"/>
               <line x1="0" y1="-4" x2="0" y2="0" stroke="#d4a843" stroke-width="1"/>
@@ -418,10 +397,10 @@ html, body {
               <circle cx="0" cy="7" r="3" fill="#fff8e0" opacity="0.8"/>
             </g>
           </svg>
-          <a class="map-btn"
-             href="https://maps.google.com/?q=Parco+Gambrinus+San+Polo+di+Piave"
-             target="_blank">📍   Apri in Google Maps</a>
         </div>
+        <a class="btn-action" href="https://www.google.com/maps/search/?api=1&query=Parco+Gambrinus+San+Polo+di+Piave" target="_blank" style="margin-bottom: 0;">
+          📍 Apri in Google Maps
+        </a>
       </div>
     </div>
 
@@ -432,46 +411,32 @@ html, body {
     <div class="section">
       <div class="card">
         <span class="label">💌 Conferma la tua presenza</span>
-        <p style="margin-bottom:12px;">Facci sapere se ci sarai! 🌹<br>
+        <p style="margin-bottom:15px;">Facci sapere se ci sarai! 🌹<br>
         <span class="small">Rispondi entro il 31 luglio 2026</span></p>
-        <a href="#FORM_LINK"
-           style="display:block; width:100%; font-family:'Lato',sans-serif;
-                  font-size:clamp(0.65rem,2.5vw,0.76rem); font-weight:400;
-                  letter-spacing:0.20em; text-transform:uppercase; text-align:center;
-                  text-decoration:none; padding:12px 16px; border-radius:6px;
-                  border:1px solid rgba(212,168,67,0.6); color:var(--gold-light);
-                  background:rgba(212,168,67,0.18);
-                  transition:background 0.22s, color 0.22s; margin-bottom:16px;"
-           onmouseover="this.style.background='rgba(212,168,67,0.85)';this.style.color='#2a1038'"
-           onmouseout="this.style.background='rgba(212,168,67,0.18)';this.style.color='var(--gold-light)'">
-          ♡   Compila il modulo RSVP
+        
+        <a href="#FORM_LINK" class="btn-action">
+          ♡ Compila il modulo RSVP
         </a>
-        <div style="border-top:1px solid rgba(212,168,67,0.2); padding-top:14px;">
+
+        <div style="border-top:1px solid rgba(212,168,67,0.3); padding-top:18px; margin-top: 5px;">
           <span class="label" style="margin-bottom:8px;">🎁 Un pensiero per noi ✈️</span>
-          <p style="margin-bottom:10px;">
+          <p style="margin-bottom:15px;">
             Se desiderate farci un dono,<br>
             aiutateci a inseguire il nostro sogno:<br>
             <strong>scoprire nuovi orizzonti! 🌙⭐</strong>
           </p>
-          <a href="#IBAN_LINK"
-             style="display:block; width:100%; font-family:'Lato',sans-serif;
-                    font-size:clamp(0.65rem,2.5vw,0.76rem); font-weight:400;
-                    letter-spacing:0.20em; text-transform:uppercase; text-align:center;
-                    text-decoration:none; padding:12px 16px; border-radius:6px;
-                    border:1px solid rgba(212,168,67,0.48); color:var(--gold-light);
-                    background:var(--card-bg);
-                    transition:background 0.22s, color 0.22s; margin-bottom:12px;"
-             onmouseover="this.style.background='rgba(212,168,67,0.85)';this.style.color='#2a1038'"
-             onmouseout="this.style.background='var(--card-bg)';this.style.color='var(--gold-light)'">
-            🎁   Contribuisci al viaggio di nozze
+          
+          <a href="#IBAN_LINK" class="btn-action">
+            🎁 Contribuisci al viaggio di nozze
           </a>
-          <div style="border-top:1px solid rgba(212,168,67,0.15); padding-top:12px; margin-top:4px;">
-            <span class="label" style="margin-bottom:6px;">🏦 Coordinate bancarie</span>
-            <p style="font-style:normal; font-size:clamp(0.72rem,2.8vw,0.85rem); letter-spacing:0.04em; color:var(--text-soft);">
-              Intestato a: <strong style="color:var(--gold-light); font-style:normal;">Erika / Elisabetta</strong><br>
-              IBAN: <strong style="color:var(--gold-light); font-style:normal; letter-spacing:0.08em;">IT00 X000 0000 0000 0000 0000 000</strong>
+          
+          <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px; margin-top:10px;">
+            <span class="label" style="margin-bottom:8px; font-size: 0.6rem;">🏦 Coordinate bancarie</span>
+            <p style="font-style:normal; font-size:clamp(0.75rem,2.8vw,0.85rem); color:var(--text); line-height: 1.4;">
+              Intestato a: <strong style="color:var(--gold-light);">Erika / Elisabetta</strong><br>
+              IBAN: <strong style="color:var(--gold-light); letter-spacing:0.05em; font-size: 0.9em;">IT00 X000 0000 0000 0000 0000 000</strong>
             </p>
-            <p style="font-size:clamp(0.65rem,2.4vw,0.75rem); margin-top:8px; color:var(--text-soft);">
+            <p style="font-size:clamp(0.7rem,2.4vw,0.75rem); margin-top:8px; color:var(--text-soft);">
               <span class="small">Causale: Viaggio di nozze Erika & Elisabetta 04/09/2026</span>
             </p>
           </div>
@@ -479,12 +444,14 @@ html, body {
       </div>
     </div>
 
-    <div class="section">
-      <div class="buttons">
-        <a class="btn"
-           href="https://wa.me/393429435775?text=Ciao!%20Vi%20scrivo%20per%20il%20matrimonio%20del%204%20settembre%20%F0%9F%A5%82"
-           target="_blank">💬   Scrivici su WhatsApp</a>
-        <a class="btn" href="tel:+393429435775">📞   Chiamaci</a>
+    <div class="section" style="margin-bottom: 20px;">
+      <div class="buttons-row">
+        <a class="btn-action" href="https://wa.me/393429435775?text=Ciao!%20Vi%20scrivo%20per%20il%20matrimonio%20del%204%20settembre%20%F0%9F%A5%82" target="_blank" style="background: var(--card-bg);">
+          💬 Scrivici su WhatsApp
+        </a>
+        <a class="btn-action" href="tel:+393429435775" style="background: var(--card-bg);">
+          📞 Chiamaci
+        </a>
       </div>
     </div>
 
