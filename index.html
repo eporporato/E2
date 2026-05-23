@@ -27,8 +27,10 @@ body{
   width:100%;
   overflow-x:hidden;
   font-family:'Lato',sans-serif;
-  background:#000;
+  background:transparent;
 }
+
+/* CONTENITORE PRINCIPALE */
 
 #page{
   position:relative;
@@ -39,14 +41,16 @@ body{
   overflow:hidden;
 }
 
-/* SFONDO */
+/* IMMAGINE DI SFONDO */
 
 #bgImg{
   position:absolute;
-  inset:0;
+  top:0;
+  left:0;
   width:100%;
   height:100%;
   object-fit:cover;
+  display:block;
   z-index:-1;
 }
 
@@ -61,24 +65,26 @@ body{
   padding:8% 5% 40px;
 }
 
+/* SEZIONI */
+
 .section{
   width:100%;
   max-width:420px;
 }
 
-/* TESTI */
+/* TESTO */
 
 .text-outline{
   text-shadow:
-    0 2px 6px rgba(0,0,0,0.55);
+    0 1px 4px rgba(0,0,0,0.45);
 }
 
 .names{
   font-family:'Great Vibes',cursive;
   font-size:clamp(3rem,13vw,5rem);
-  line-height:1.1;
   color:var(--white);
   text-align:center;
+  line-height:1.1;
 }
 
 .amp{
@@ -91,7 +97,7 @@ body{
   display:block;
   text-align:center;
   color:var(--gold);
-  font-size:clamp(0.7rem,2.4vw,0.9rem);
+  font-size:clamp(0.7rem,2.5vw,0.9rem);
   letter-spacing:0.2em;
   text-transform:uppercase;
   font-weight:700;
@@ -116,24 +122,7 @@ body{
 }
 
 .small{
-  font-size:clamp(0.8rem,2.7vw,0.95rem);
-}
-
-/* CASELLINE */
-
-.glass-box{
-  width:100%;
-  padding:18px;
-  border-radius:16px;
-
-  background:rgba(0,0,0,0.28);
-
-  backdrop-filter:blur(5px);
-
-  border:1px solid rgba(255,215,0,0.25);
-
-  box-shadow:
-    0 4px 20px rgba(0,0,0,0.35);
+  font-size:clamp(0.8rem,2.8vw,0.95rem);
 }
 
 /* TIMELINE */
@@ -196,9 +185,9 @@ body{
 }
 
 .tl-desc{
-  color:#f0f0f0;
-  margin-top:2px;
+  color:#f1f1f1;
   font-style:italic;
+  margin-top:2px;
   font-size:clamp(0.8rem,2.8vw,0.92rem);
 }
 
@@ -207,14 +196,11 @@ body{
 .map-wrap{
   width:100%;
   overflow:hidden;
-  border-radius:14px;
+  border-radius:10px;
   margin-bottom:14px;
-  border:1px solid rgba(255,215,0,0.3);
-  box-shadow:
-    0 4px 18px rgba(0,0,0,0.4);
 }
 
-.map-wrap img{
+.map-wrap svg{
   width:100%;
   display:block;
 }
@@ -226,9 +212,8 @@ body{
   width:100%;
   text-decoration:none;
   text-align:center;
-
   padding:14px 16px;
-  border-radius:12px;
+  border-radius:10px;
 
   color:#fff;
   font-size:clamp(0.75rem,2.5vw,0.9rem);
@@ -236,19 +221,17 @@ body{
   letter-spacing:0.12em;
   text-transform:uppercase;
 
-  background:rgba(0,0,0,0.38);
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(3px);
 
-  backdrop-filter:blur(4px);
-
-  border:1px solid rgba(255,215,0,0.45);
+  border:1px solid rgba(255,215,0,0.6);
 
   transition:0.2s;
-
   margin-bottom:12px;
 }
 
 .btn-action:hover{
-  background:rgba(0,0,0,0.58);
+  background:rgba(255,255,255,0.16);
   border-color:#fff;
 }
 
@@ -264,8 +247,8 @@ body{
   font-family:'Great Vibes',cursive;
   color:var(--white);
   text-align:center;
-  line-height:1.3;
   font-size:clamp(2.2rem,8vw,3rem);
+  line-height:1.3;
 }
 
 </style>
@@ -282,6 +265,8 @@ body{
     src="https://i.imgur.com/RcXItON.jpeg"
     alt="Sfondo Rapunzel"
   >
+
+  <!-- CONTENUTO -->
 
   <div id="content">
 
@@ -301,16 +286,12 @@ body{
 
     <div class="section">
 
-      <div class="glass-box">
+      <div class="card">
 
-        <div class="card">
-
-          <p class="text-outline">
-            ✨ Dopo 5 anni dal giorno della proposta,<br>
-            <strong>finalmente ci sposiamo! 🏰</strong>
-          </p>
-
-        </div>
+        <p class="text-outline">
+          ✨ Dopo 5 anni dal giorno della proposta,<br>
+          <strong>finalmente ci sposiamo! 🏰</strong>
+        </p>
 
       </div>
 
@@ -320,121 +301,117 @@ body{
 
     <div class="section">
 
-      <div class="glass-box">
+      <div class="card">
 
-        <div class="card">
+        <span class="label text-outline">
+          🌙 La nostra giornata ⭐
+        </span>
 
-          <span class="label text-outline">
-            🌙 La nostra giornata ⭐
-          </span>
+        <div class="timeline">
 
-          <div class="timeline">
+          <div class="tl-row">
 
-            <div class="tl-row">
-
-              <div class="tl-left">
-                <span class="tl-time text-outline">16:00</span>
-              </div>
-
-              <div class="tl-center">
-                <div class="tl-dot"></div>
-                <div class="tl-line"></div>
-              </div>
-
-              <div class="tl-right">
-                <div class="tl-event text-outline">🌹 Arrivo degli ospiti</div>
-                <div class="tl-desc text-outline">Parco Gambrinus</div>
-              </div>
-
+            <div class="tl-left">
+              <span class="tl-time text-outline">16:00</span>
             </div>
 
-            <div class="tl-row">
-
-              <div class="tl-left">
-                <span class="tl-time text-outline">17:00</span>
-              </div>
-
-              <div class="tl-center">
-                <div class="tl-dot"></div>
-                <div class="tl-line"></div>
-              </div>
-
-              <div class="tl-right">
-                <div class="tl-event text-outline">💍 Cerimonia</div>
-                <div class="tl-desc text-outline">Il momento più atteso ♡</div>
-              </div>
-
+            <div class="tl-center">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
             </div>
 
-            <div class="tl-row">
-
-              <div class="tl-left">
-                <span class="tl-time text-outline">18:30</span>
-              </div>
-
-              <div class="tl-center">
-                <div class="tl-dot"></div>
-                <div class="tl-line"></div>
-              </div>
-
-              <div class="tl-right">
-                <div class="tl-event text-outline">🥂 Aperitivo</div>
-                <div class="tl-desc text-outline">Brindisi e antipasti</div>
-              </div>
-
+            <div class="tl-right">
+              <div class="tl-event text-outline">🌹 Arrivo degli ospiti</div>
+              <div class="tl-desc text-outline">Parco Gambrinus</div>
             </div>
 
-            <div class="tl-row">
+          </div>
 
-              <div class="tl-left">
-                <span class="tl-time text-outline">20:00</span>
-              </div>
+          <div class="tl-row">
 
-              <div class="tl-center">
-                <div class="tl-dot"></div>
-                <div class="tl-line"></div>
-              </div>
-
-              <div class="tl-right">
-                <div class="tl-event text-outline">🌟 Cena</div>
-                <div class="tl-desc text-outline">Sotto le stelle</div>
-              </div>
-
+            <div class="tl-left">
+              <span class="tl-time text-outline">17:00</span>
             </div>
 
-            <div class="tl-row">
-
-              <div class="tl-left">
-                <span class="tl-time text-outline">23:00</span>
-              </div>
-
-              <div class="tl-center">
-                <div class="tl-dot"></div>
-                <div class="tl-line"></div>
-              </div>
-
-              <div class="tl-right">
-                <div class="tl-event text-outline">🎂 Taglio della torta</div>
-                <div class="tl-desc text-outline">E poi si balla! 🦋</div>
-              </div>
-
+            <div class="tl-center">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
             </div>
 
-            <div class="tl-row">
+            <div class="tl-right">
+              <div class="tl-event text-outline">💍 Cerimonia</div>
+              <div class="tl-desc text-outline">Il momento più atteso ♡</div>
+            </div>
 
-              <div class="tl-left">
-                <span class="tl-time text-outline">01:00</span>
-              </div>
+          </div>
 
-              <div class="tl-center">
-                <div class="tl-dot"></div>
-              </div>
+          <div class="tl-row">
 
-              <div class="tl-right">
-                <div class="tl-event text-outline">✨ Fine serata</div>
-                <div class="tl-desc text-outline">Arrivederci e grazie ♡</div>
-              </div>
+            <div class="tl-left">
+              <span class="tl-time text-outline">18:30</span>
+            </div>
 
+            <div class="tl-center">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
+            </div>
+
+            <div class="tl-right">
+              <div class="tl-event text-outline">🥂 Aperitivo</div>
+              <div class="tl-desc text-outline">Brindisi e antipasti</div>
+            </div>
+
+          </div>
+
+          <div class="tl-row">
+
+            <div class="tl-left">
+              <span class="tl-time text-outline">20:00</span>
+            </div>
+
+            <div class="tl-center">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
+            </div>
+
+            <div class="tl-right">
+              <div class="tl-event text-outline">🌟 Cena</div>
+              <div class="tl-desc text-outline">Sotto le stelle</div>
+            </div>
+
+          </div>
+
+          <div class="tl-row">
+
+            <div class="tl-left">
+              <span class="tl-time text-outline">23:00</span>
+            </div>
+
+            <div class="tl-center">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
+            </div>
+
+            <div class="tl-right">
+              <div class="tl-event text-outline">🎂 Taglio della torta</div>
+              <div class="tl-desc text-outline">E poi si balla! 🦋</div>
+            </div>
+
+          </div>
+
+          <div class="tl-row">
+
+            <div class="tl-left">
+              <span class="tl-time text-outline">01:00</span>
+            </div>
+
+            <div class="tl-center">
+              <div class="tl-dot"></div>
+            </div>
+
+            <div class="tl-right">
+              <div class="tl-event text-outline">✨ Fine serata</div>
+              <div class="tl-desc text-outline">Arrivederci e grazie ♡</div>
             </div>
 
           </div>
@@ -449,7 +426,7 @@ body{
 
     <div class="section">
 
-      <div class="glass-box">
+      <div class="card">
 
         <span class="label text-outline">
           🗺️ Come arrivare
@@ -457,10 +434,29 @@ body{
 
         <div class="map-wrap">
 
-          <img
-            src="https://maps.googleapis.com/maps/api/staticmap?center=Parco+Gambrinus+San+Polo+di+Piave&zoom=15&size=800x400&maptype=roadmap&markers=color:purple%7CParco+Gambrinus+San+Polo+di+Piave"
-            alt="Mappa Parco Gambrinus"
-          >
+          <svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg">
+
+            <rect width="360" height="200" fill="#20052e"/>
+
+            <line x1="30" y1="120" x2="330" y2="120" stroke="#4a3060" stroke-width="6"/>
+            <line x1="180" y1="60" x2="180" y2="155" stroke="#3a2050" stroke-width="4"/>
+
+            <circle cx="180" cy="108" r="6" fill="#d4a843"/>
+
+            <rect x="120" y="132" width="120" height="18" rx="4" fill="#3a154d"/>
+
+            <text
+              x="180"
+              y="144"
+              font-size="8.5"
+              fill="#f0d98a"
+              text-anchor="middle"
+              font-weight="bold"
+            >
+              Parco Gambrinus
+            </text>
+
+          </svg>
 
         </div>
 
@@ -492,7 +488,7 @@ body{
 
     <div class="section">
 
-      <div class="glass-box">
+      <div class="card">
 
         <span class="label text-outline">
           💌 Conferma la tua presenza
@@ -509,88 +505,6 @@ body{
         <a href="#FORM_LINK" class="btn-action">
           ♡ Compila il modulo RSVP
         </a>
-
-      </div>
-
-    </div>
-
-    <!-- IBAN -->
-
-    <div class="section">
-
-      <div class="glass-box">
-
-        <span class="label text-outline">
-          🎁 Un pensiero per noi ✈️
-        </span>
-
-        <p class="text-outline" style="margin-bottom:18px;">
-
-          Se desiderate farci un dono,<br>
-          aiutateci a inseguire il nostro sogno:<br>
-
-          <strong>
-            scoprire nuovi orizzonti! 🌙⭐
-          </strong>
-
-        </p>
-
-        <a href="#IBAN_LINK" class="btn-action">
-          🎁 Contribuisci al viaggio di nozze
-        </a>
-
-        <div
-          class="glass-box"
-          style="
-            margin-top:14px;
-            background:rgba(0,0,0,0.22);
-          "
-        >
-
-          <span
-            class="label text-outline"
-            style="margin-bottom:10px;"
-          >
-            🏦 Coordinate bancarie
-          </span>
-
-          <p
-            class="text-outline"
-            style="
-              font-style:normal;
-              line-height:1.7;
-              font-size:0.95rem;
-            "
-          >
-
-            Intestato a:<br>
-
-            <strong>
-              Erika / Elisabetta
-            </strong>
-
-            <br><br>
-
-            IBAN:<br>
-
-            <strong>
-              IT00 X000 0000 0000 0000 0000 000
-            </strong>
-
-          </p>
-
-          <p
-            class="text-outline"
-            style="
-              margin-top:12px;
-              font-size:0.82rem;
-            "
-          >
-            Causale:<br>
-            Viaggio di nozze Erika & Elisabetta 04/09/2026
-          </p>
-
-        </div>
 
       </div>
 
@@ -625,408 +539,5 @@ body{
 
 </div>
 
-</body>
-</html><!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Erika & Elisabetta ♡ 4 Settembre 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --gold-bright: #ffd700; /* Oro molto luminoso per i dettagli */
-  --text-main: #ffffff;   /* Testo principale bianco */
-}
-html, body {
-  width: 100%; margin: 0; padding: 0;
-  background: #000;
-  overflow-x: hidden;
-  font-family: 'Lato', sans-serif;
-}
-#page {
-  position: relative;
-  width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
-  min-height: 100vh;
-  padding-bottom: 40px;
-}
-/* L'immagine di sfondo di Rapunzel al 100% visibile */
-#bgImg {
-  position: fixed;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 100%; height: 100%;
-  max-width: 520px;
-  object-fit: cover;
-  display: block;
-  z-index: -2;
-}
-
-#content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 8% 5% 5%;
-  gap: 32px;
-  z-index: 1;
-}
-.section {
-  width: 100%;
-  max-width: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-/* Stile base per testi con forte ombra scura per la leggibilità */
-.text-outline {
-  text-shadow: 
-    -1px -1px 3px #000,  
-     1px -1px 3px #000,
-    -1px  1px 3px #000,
-     1px  1px 3px #000,
-     0px  0px 10px rgba(0,0,0,0.9);
-}
-
-.names {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(3rem, 13vw, 4.8rem);
-  color: var(--text-main);
-  line-height: 1.1;
-  text-align: center;
-  margin-bottom: 10px;
-}
-.amp {
-  display: block;
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(1.8rem, 7vw, 2.8rem);
-  color: var(--gold-bright);
-  margin: -6px 0;
-  text-align: center;
-}
-/* Caselle completamente invisibili, manteniamo solo il padding per la spaziatura */
-.card {
-  background: transparent;
-  border: none;
-  padding: 4% 2%;
-  width: 100%;
-  text-align: center;
-}
-.label {
-  display: block;
-  font-family: 'Lato', sans-serif;
-  font-size: clamp(0.6rem, 2.2vw, 0.8rem);
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gold-bright);
-  margin-bottom: 18px;
-  font-weight: 700;
-}
-.card p {
-  font-weight: 500;
-  font-style: italic;
-  font-size: clamp(1rem, 3.8vw, 1.2rem);
-  line-height: 1.7;
-  color: var(--text-main);
-}
-.card p strong {
-  font-weight: 800; 
-  font-style: normal;
-  color: var(--gold-bright);
-}
-.card p .small {
-  font-style: normal; font-weight: 500;
-  color: #eeeeee;
-  font-size: clamp(0.85rem, 3.2vw, 0.95rem);
-}
-/* Timeline */
-.timeline {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  text-align: left;
-}
-.tl-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 0;
-  position: relative;
-}
-.tl-left {
-  width: 22%;
-  text-align: right;
-  padding-right: 14px;
-  padding-top: 2px;
-  flex-shrink: 0;
-}
-.tl-time {
-  font-weight: 800;
-  font-size: clamp(0.85rem, 3.2vw, 1rem);
-  color: var(--gold-bright);
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-.tl-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  padding-top: 4px;
-}
-.tl-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: var(--gold-bright);
-  border: 2px solid #000;
-  flex-shrink: 0;
-}
-.tl-line {
-  width: 2px;
-  flex: 1;
-  min-height: 28px;
-  background: linear-gradient(to bottom, var(--gold-bright), transparent);
-  margin-top: 2px;
-}
-.tl-row:last-child .tl-line { display: none; }
-.tl-right {
-  flex: 1;
-  padding-left: 14px;
-  padding-bottom: 22px;
-}
-.tl-event {
-  font-weight: 800;
-  font-style: normal;
-  font-size: clamp(0.95rem, 3.4vw, 1.1rem);
-  color: var(--text-main);
-  line-height: 1.4;
-}
-.tl-desc {
-  font-weight: 600;
-  font-style: italic;
-  font-size: clamp(0.8rem, 2.8vw, 0.9rem);
-  color: #eeeeee;
-  margin-top: 2px;
-}
-/* Mappa */
-.map-wrap {
-  width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 2px solid #000;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-}
-.map-wrap svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-/* Pulsanti */
-.btn-action {
-  display: block;
-  width: 100%;
-  font-size: clamp(0.75rem, 2.5vw, 0.85rem);
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  text-align: center;
-  text-decoration: none;
-  padding: 14px 16px;
-  border-radius: 8px;
-  color: #ffffff;
-  /* Sfondo semi-trasparente scuro per i bottoni per renderli cliccabili visivamente */
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid var(--gold-bright);
-  transition: all 0.2s ease;
-  margin-bottom: 12px;
-  text-shadow: none; /* Rimosso l'outline dai bottoni per pulizia */
-}
-.btn-action:hover, .btn-action:active {
-  background: rgba(0, 0, 0, 0.9);
-  border-color: #ffffff;
-}
-.buttons-row {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 12px;
-}
-.closing {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(2.2rem, 8vw, 3rem);
-  color: var(--text-main);
-  text-align: center;
-  line-height: 1.3;
-  margin: 10px 0;
-}
-</style>
-</head>
-<body>
-
-<div id="page">
-  <img id="bgImg" src="https://i.imgur.com/RcXItON.jpeg" alt="Sfondo Rapunzel">
-  
-  <div id="content">
-
-    <div class="section">
-      <div class="names text-outline">Erika<span class="amp text-outline">&</span>Elisabetta</div>
-    </div>
-
-    <div class="section">
-      <div class="card">
-        <p class="text-outline">✨ Dopo 5 anni dal giorno della proposta,<br><strong>finalmente ci sposiamo! 🏰</strong></p>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="card">
-        <span class="label text-outline">🌙 La nostra giornata ⭐</span>
-        <div class="timeline">
-          <div class="tl-row">
-            <div class="tl-left"><span class="tl-time text-outline">16:00</span></div>
-            <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-event text-outline">🌹 Arrivo degli ospiti</div>
-              <div class="tl-desc text-outline">Parco Gambrinus</div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-left"><span class="tl-time text-outline">17:00</span></div>
-            <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-event text-outline">💍 Cerimonia</div>
-              <div class="tl-desc text-outline">Il momento più atteso ♡</div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-left"><span class="tl-time text-outline">18:30</span></div>
-            <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-event text-outline">🥂 Aperitivo</div>
-              <div class="tl-desc text-outline">Brindisi e antipasti</div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-left"><span class="tl-time text-outline">20:00</span></div>
-            <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-event text-outline">🌟 Cena</div>
-              <div class="tl-desc text-outline">Sotto le stelle</div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-left"><span class="tl-time text-outline">23:00</span></div>
-            <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <div class="tl-event text-outline">🎂 Taglio della torta</div>
-              <div class="tl-desc text-outline">E poi si balla! 🦋</div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-left"><span class="tl-time text-outline">01:00</span></div>
-            <div class="tl-center"><div class="tl-dot"></div></div>
-            <div class="tl-right">
-              <div class="tl-event text-outline">✨ Fine serata</div>
-              <div class="tl-desc text-outline">Arrivederci e grazie ♡</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="card" style="padding-bottom: 6%;">
-        <span class="label text-outline">🗺️ Come arrivare</span>
-        <div class="map-wrap">
-          <svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg" style="background:#20052e;">
-            <defs>
-              <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#4a2560" stop-opacity="1"/>
-                <stop offset="100%" stop-color="#20052e" stop-opacity="1"/>
-              </radialGradient>
-            </defs>
-            <rect width="360" height="200" fill="url(#glow)"/>
-            <circle cx="20" cy="15" r="1" fill="#f0d98a" opacity="0.7"/>
-            <circle cx="90" cy="20" r="1" fill="#f0d98a" opacity="0.6"/>
-            <circle cx="200" cy="18" r="1" fill="#f0d98a" opacity="0.7"/>
-            <circle cx="310" cy="15" r="1" fill="#f0d98a" opacity="0.6"/>
-            <path d="M0,155 Q90,145 180,158 Q270,170 360,155 L360,180 Q270,195 180,182 Q90,168 0,178 Z" fill="#2a4a7a" opacity="0.4"/>
-            <line x1="30" y1="120" x2="330" y2="120" stroke="#4a3060" stroke-width="6"/>
-            <line x1="180" y1="60" x2="180" y2="155" stroke="#3a2050" stroke-width="4"/>
-            <text x="180" y="115" font-family="sans-serif" font-size="8" fill="#dfc5f0" text-anchor="middle">Via Capitello</text>
-            <g transform="translate(260,55)">
-              <rect x="0" y="20" width="18" height="35" fill="#3a1a55" stroke="#6a3a8a" stroke-width="0.8"/>
-              <polygon points="9,0 -4,22 22,22" fill="#5a2a7a"/>
-            </g>
-            <g transform="translate(178,108)">
-              <circle cx="0" cy="0" r="6" fill="#d4a843"/>
-            </g>
-            <rect x="120" y="132" width="120" height="18" rx="4" fill="#3a154d"/>
-            <text x="180" y="144" font-family="sans-serif" font-size="8.5" fill="#f0d98a" text-anchor="middle" font-weight="bold">Parco Gambrinus</text>
-          </svg>
-        </div>
-        <a class="btn-action" href="https://maps.google.com/?q=Parco+Gambrinus+San+Polo+di+Piave" target="_blank" style="margin-bottom: 0;">
-          📍 Apri in Google Maps
-        </a>
-      </div>
-    </div>
-
-    <div class="section">
-      <p class="closing text-outline">Non vediamo l'ora di condividere<br>questo giorno speciale<br>con voi! 🏰✨</p>
-    </div>
-
-    <div class="section">
-      <div class="card">
-        <span class="label text-outline">💌 Conferma la tua presenza</span>
-        <p class="text-outline" style="margin-bottom:15px;">Facci sapere se ci sarai! 🌹<br>
-        <span class="small text-outline">Rispondi entro il 31 luglio 2026</span></p>
-        
-        <a href="#FORM_LINK" class="btn-action">
-          ♡ Compila il modulo RSVP
-        </a>
-
-        <div style="padding-top:18px; margin-top: 15px;">
-          <span class="label text-outline" style="margin-bottom:8px;">🎁 Un pensiero per noi ✈️</span>
-          <p class="text-outline" style="margin-bottom:15px;">
-            Se desiderate farci un dono,<br>
-            aiutateci a inseguire il nostro sogno:<br>
-            <strong>scoprire nuovi orizzonti! 🌙⭐</strong>
-          </p>
-          
-          <a href="#IBAN_LINK" class="btn-action">
-            🎁 Contribuisci al viaggio di nozze
-          </a>
-          
-          <div style="padding: 10px 0; margin-top:10px;">
-            <span class="label text-outline" style="margin-bottom:8px; font-size: 0.65rem;">🏦 Coordinate bancarie</span>
-            <p class="text-outline" style="font-style:normal; font-size:clamp(0.85rem,3vw,0.95rem); line-height: 1.5;">
-              Intestato a: <strong style="color:var(--gold-bright);">Erika / Elisabetta</strong><br>
-              IBAN: <strong style="color:var(--gold-bright); letter-spacing:0.02em; font-size: 0.95em; font-style: normal;">IT00 X000 0000 0000 0000 0000 000</strong>
-            </p>
-            <p class="text-outline" style="font-size:clamp(0.75rem,2.6vw,0.85rem); margin-top:8px; font-weight: 500; font-style: italic;">
-              Causale: Viaggio di nozze Erika & Elisabetta 04/09/2026
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section" style="margin-bottom: 20px;">
-      <div class="buttons-row">
-        <a class="btn-action" href="https://wa.me/393429435775?text=Ciao!%20Vi%20scrivo%20per%20il%20matrimonio%20del%204%20settembre%20%F0%9F%A5%82" target="_blank">
-          💬 Scrivici su WhatsApp
-        </a>
-        <a class="btn-action" href="tel:+393429435775">
-          📞 Chiamaci
-        </a>
-      </div>
-    </div>
-
-  </div>
-</div>
 </body>
 </html>
