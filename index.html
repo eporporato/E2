@@ -1,17 +1,9 @@
 <!DOCTYPE html>
-<!--
-  ╔══════════════════════════════════════════════════════════════╗
-  ║  ISTRUZIONI: Copia il valore dell'attributo src del tag     ║
-  ║  <img id="bgImg"> dall'HTML originale e incollalo qui       ║
-  ║  al posto di INCOLLA_QUI_LA_SRC_DEL_TAG_IMG_ORIGINALE       ║
-  ╚══════════════════════════════════════════════════════════════╝
--->
-
 <html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Erika &amp; Elisabetta ♡ 4 Settembre 2026</title>
+<title>Erika & Elisabetta ♡ 4 Settembre 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,7 +13,7 @@
   --gold-dim: rgba(212,168,67,0.45);
   --purple-dark: #2a1038;
   --purple-bg: #1a0826;
-  --card-bg: rgba(20,5,35,0.28);
+  --card-bg: rgba(20,5,35,0.45); /* Aumentato leggermente per migliorare la leggibilità sullo sfondo */
   --text: rgba(255,248,242,0.97);
   --text-soft: rgba(255,248,242,0.80);
 }
@@ -35,39 +27,44 @@ html, body {
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
-  height: calc(min(100vw, 520px) * 3.4);
+  min-height: 100vh;
+  padding-bottom: 40px;
 }
 #bgImg {
-  position: absolute;
-  top: 0; left: 0;
+  position: fixed; /* Cambiato in fixed per un fantastico effetto scorrimento */
+  top: 0; left: 50%;
+  transform: translateX(-50%);
   width: 100%; height: 100%;
-  object-fit: fill;
+  max-width: 520px;
+  object-fit: cover; /* Cambiato in cover per non distorcere l'immagine originale */
   display: block;
-  /* NO filter/opacity - show full image */
+  z-index: -1;
 }
-/* Subtle dark overlay so text stays readable without hiding the image */
+/* Sfumatura scura per rendere il testo ancora più leggibile */
 #page::after {
   content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  position: fixed;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 100%; height: 100%;
+  max-width: 520px;
   background: linear-gradient(
     to bottom,
-    rgba(10,2,20,0.18) 0%,
-    rgba(10,2,20,0.10) 30%,
-    rgba(10,2,20,0.10) 70%,
-    rgba(10,2,20,0.25) 100%
+    rgba(10,2,20,0.30) 0%,
+    rgba(10,2,20,0.15) 30%,
+    rgba(10,2,20,0.15) 70%,
+    rgba(10,2,20,0.40) 100%
   );
   pointer-events: none;
   z-index: 0;
 }
 #content {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding: 4% 5% 3%;
+  padding: 8% 5% 5%;
+  gap: 35px; /* Spaziatura uniforme tra le sezioni */
   z-index: 1;
 }
 .section {
@@ -80,34 +77,32 @@ html, body {
 .names {
   font-family: 'Great Vibes', cursive;
   font-size: clamp(2.8rem, 12vw, 5rem);
-  color: var(--purple-dark);
+  color: #ffffff; /* Modificato in bianco per risaltare sullo sfondo scuro dell'immagine */
   line-height: 1.1;
   text-align: center;
   text-shadow:
-    0 0 30px rgba(255,255,255,1),
-    0 0 15px rgba(255,255,255,0.9),
-    0 2px 6px rgba(255,255,255,0.7);
+    0 0 20px rgba(42,16,56,0.8),
+    0 2px 6px rgba(0,0,0,0.5);
 }
 .amp {
   display: block;
   font-family: 'Great Vibes', cursive;
   font-size: clamp(1.6rem, 6.5vw, 2.8rem);
-  color: var(--purple-dark);
-  opacity: 0.65;
-  text-shadow: 0 0 20px rgba(255,255,255,0.9);
+  color: var(--gold-light);
   margin: -4px 0;
   text-align: center;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 .card {
   background: var(--card-bg);
   border: 1px solid rgba(212,168,67,0.40);
   border-radius: 10px;
-  padding: 4% 5%;
+  padding: 6% 5%;
   width: 100%;
   text-align: center;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.35);
+  box-shadow: 0 4px 25px rgba(0,0,0,0.45);
 }
 .label {
   display: block;
@@ -116,7 +111,7 @@ html, body {
   letter-spacing: 0.30em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 .card p {
   font-family: 'Lato', sans-serif;
@@ -140,6 +135,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 0;
+  text-align: left;
 }
 .tl-row {
   display: flex;
@@ -180,7 +176,7 @@ html, body {
 .tl-line {
   width: 1px;
   flex: 1;
-  min-height: 18px;
+  min-height: 25px;
   background: linear-gradient(to bottom, var(--gold-dim), transparent);
   margin-top: 2px;
 }
@@ -188,7 +184,7 @@ html, body {
 .tl-right {
   flex: 1;
   padding-left: 14px;
-  padding-bottom: 16px;
+  padding-bottom: 20px;
   padding-top: 0px;
 }
 .tl-event {
@@ -248,7 +244,7 @@ html, body {
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
-  padding: 3.5% 4%;
+  padding: 4% 4%;
   border-radius: 4px;
   border: 1px solid rgba(212,168,67,0.48);
   color: var(--gold-light);
@@ -262,39 +258,33 @@ html, body {
   background: rgba(212,168,67,0.85);
   color: var(--purple-dark);
 }
-.btn-primary {
-  background: rgba(212,168,67,0.18);
-  border-color: var(--gold);
-}
 .closing {
   font-family: 'Great Vibes', cursive;
   font-size: clamp(1.8rem, 7.5vw, 2.6rem);
   color: var(--gold-light);
   text-align: center;
   line-height: 1.4;
-  text-shadow: 0 1px 10px rgba(0,0,0,0.8);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.9);
 }
 </style>
 </head>
 <body>
+
 <div id="page">
-  <!-- SFONDO: inserire qui il tag img con base64 originale -->
-  <img id="bgImg" src="https://imgur.com/a/HYuZ99W.jpg" style="background:#2a0a40;" alt="Illustrazione acquerello lanterne matrimonio">
+  <img id="bgImg" src="https://i.imgur.com/lMAnKz0.png" style="background:#2a0a40;" alt="Illustrazione acquerello lanterne matrimonio">
+  
   <div id="content">
 
-    <!-- 1. NOMI -->
     <div class="section">
-      <div class="names">Erika<span class="amp">&amp;</span>Elisabetta</div>
+      <div class="names">Erika<span class="amp">&</span>Elisabetta</div>
     </div>
 
-    <!-- 2. ANNUNCIO -->
     <div class="section">
       <div class="card">
         <p>✨ Dopo 5 anni dal giorno della proposta,<br><strong>finalmente ci sposiamo! 🏰</strong></p>
       </div>
     </div>
 
-    <!-- 3. PROGRAMMA -->
     <div class="section">
       <div class="card">
         <span class="label">🌙 La nostra giornata ⭐</span>
@@ -351,7 +341,6 @@ html, body {
       </div>
     </div>
 
-    <!-- 4. MAPPA -->
     <div class="section">
       <div class="card" style="padding:0; overflow:hidden;">
         <span class="label" style="display:block; padding: 14px 5% 0;">🗺️ Come arrivare</span>
@@ -430,18 +419,16 @@ html, body {
             </g>
           </svg>
           <a class="map-btn"
-             href="https://maps.google.com/?q=Parco+Gambrinus+Via+Capitello+18+San+Polo+di+Piave"
-             target="_blank">📍 &nbsp;Apri in Google Maps</a>
+             href="https://maps.google.com/?q=Parco+Gambrinus+San+Polo+di+Piave"
+             target="_blank">📍   Apri in Google Maps</a>
         </div>
       </div>
     </div>
 
-    <!-- 5. FRASE SPECIALE (spostata qui, prima del regalo) -->
     <div class="section">
-      <p class="closing">Non vediamo l&apos;ora di condividere<br>questo giorno speciale<br>con voi! 🏰✨</p>
+      <p class="closing">Non vediamo l'ora di condividere<br>questo giorno speciale<br>con voi! 🏰✨</p>
     </div>
 
-    <!-- 6. RSVP + REGALO -->
     <div class="section">
       <div class="card">
         <span class="label">💌 Conferma la tua presenza</span>
@@ -457,7 +444,7 @@ html, body {
                   transition:background 0.22s, color 0.22s; margin-bottom:16px;"
            onmouseover="this.style.background='rgba(212,168,67,0.85)';this.style.color='#2a1038'"
            onmouseout="this.style.background='rgba(212,168,67,0.18)';this.style.color='var(--gold-light)'">
-          ♡ &nbsp;Compila il modulo RSVP
+          ♡   Compila il modulo RSVP
         </a>
         <div style="border-top:1px solid rgba(212,168,67,0.2); padding-top:14px;">
           <span class="label" style="margin-bottom:8px;">🎁 Un pensiero per noi ✈️</span>
@@ -476,9 +463,8 @@ html, body {
                     transition:background 0.22s, color 0.22s; margin-bottom:12px;"
              onmouseover="this.style.background='rgba(212,168,67,0.85)';this.style.color='#2a1038'"
              onmouseout="this.style.background='var(--card-bg)';this.style.color='var(--gold-light)'">
-            🎁 &nbsp;Contribuisci al viaggio di nozze
+            🎁   Contribuisci al viaggio di nozze
           </a>
-          <!-- IBAN visibile alla fine -->
           <div style="border-top:1px solid rgba(212,168,67,0.15); padding-top:12px; margin-top:4px;">
             <span class="label" style="margin-bottom:6px;">🏦 Coordinate bancarie</span>
             <p style="font-style:normal; font-size:clamp(0.72rem,2.8vw,0.85rem); letter-spacing:0.04em; color:var(--text-soft);">
@@ -486,20 +472,19 @@ html, body {
               IBAN: <strong style="color:var(--gold-light); font-style:normal; letter-spacing:0.08em;">IT00 X000 0000 0000 0000 0000 000</strong>
             </p>
             <p style="font-size:clamp(0.65rem,2.4vw,0.75rem); margin-top:8px; color:var(--text-soft);">
-              <span class="small">Causale: Viaggio di nozze Erika &amp; Elisabetta 04/09/2026</span>
+              <span class="small">Causale: Viaggio di nozze Erika & Elisabetta 04/09/2026</span>
             </p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 7. CONTATTI -->
     <div class="section">
       <div class="buttons">
         <a class="btn"
            href="https://wa.me/393429435775?text=Ciao!%20Vi%20scrivo%20per%20il%20matrimonio%20del%204%20settembre%20%F0%9F%A5%82"
-           target="_blank">💬 &nbsp;Scrivici su WhatsApp</a>
-        <a class="btn" href="tel:+393429435775">📞 &nbsp;Chiamaci</a>
+           target="_blank">💬   Scrivici su WhatsApp</a>
+        <a class="btn" href="tel:+393429435775">📞   Chiamaci</a>
       </div>
     </div>
 
