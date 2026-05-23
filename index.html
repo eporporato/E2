@@ -30,35 +30,36 @@ html, body {
   max-width: 520px;
   margin: 0 auto;
   min-height: 100vh;
+  overflow: hidden;
 }
 #bgImg {
-  position: fixed;
+  position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: -1;
+  object-fit: cover;   /* IMPORTANTISSIMO */
+  z-index: 0;
 }
 
 /* ── CONTENUTO SOVRAPPOSTO ── */
 #content {
   position: relative;
+  z-index: 1;
+  top: 0; left: 0; right: 0; bottom: 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  padding: 6vh 5% 10vh;
-  gap: 22px;
+  padding: 4% 5% 3%;
 }
 .section {
   width: 100%;
+  max-width: 420px;
   display: flex;
-  justify-content: center;
-  padding: 12px 0;
+  flex-direction: column;
+  align-items: center;
 }
-.section:nth-of-type(1),
-.section:nth-of-type(2) {
-  transform: translateY(-10px);
-}
+
 /* ── NOMI ── */
 .names {
   font-family: 'Great Vibes', cursive;
@@ -84,16 +85,14 @@ html, body {
 
 /* ── CARD BASE ── */
 .card {
-  background: rgba(20, 10, 40, 0.55); /* meno opaco */
-  border: 1px solid rgba(212,168,67,0.15);
+  background: var(--card-bg);
+  border: 1px solid rgba(212,168,67,0.1);
   border-radius: 10px;
-  padding:4% 5%;
+  padding: 4% 5%;
   width: 100%;
-  max-width: 420px;   /* AGGIUNTO */
   text-align: center;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  transform: translateY(-4px);
 }
 .label {
   display: block;
