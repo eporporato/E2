@@ -4,23 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Erika & Elisabetta ♡ 4 Settembre 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --gold: #d4a843;
-  --gold-light: #f0d98a;
-  --gold-dim: rgba(212,168,67,0.45);
-  --purple-dark: #2a1038;
-  --purple-bg: #1a0826;
-  /* Colore di sfondo delle caselle: scuro ma con forte trasparenza */
-  --card-bg: rgba(20, 5, 35, 0.65); 
-  --text: rgba(255,248,242,0.97);
-  --text-soft: rgba(255,248,242,0.80);
+  --gold: #aa7c11; /* Oro più intenso per risaltare sul fondo chiaro */
+  --gold-light: #785200;
+  --gold-dim: rgba(170, 124, 17, 0.3);
+  --purple-dark: #3a154d; /* Colore scuro per il testo principale */
+  --text-dark: #20052e;
+  --text-soft: #573e65;
+  /* Caselle chiare e molto trasparenti (effetto vetro) */
+  --card-bg: rgba(255, 248, 255, 0.45); 
+  --card-border: rgba(212, 168, 67, 0.35);
 }
 html, body {
   width: 100%; margin: 0; padding: 0;
-  background: var(--purple-bg);
+  background: #1a0826;
   overflow-x: hidden;
   font-family: 'Lato', sans-serif;
 }
@@ -32,7 +32,7 @@ html, body {
   min-height: 100vh;
   padding-bottom: 40px;
 }
-/* Immagine di sfondo fissa */
+/* L'immagine di sfondo di Rapunzel è l'assoluta protagonista */
 #bgImg {
   position: fixed;
   top: 0; left: 50%;
@@ -41,9 +41,9 @@ html, body {
   max-width: 520px;
   object-fit: cover;
   display: block;
-  z-index: -2; /* Dietro a tutto */
+  z-index: -2;
 }
-/* Il "velo" scuro sopra l'immagine */
+/* Velo rimosso / reso quasi impercettibile per lasciare intatti i colori originali */
 #page::after {
   content: "";
   position: fixed;
@@ -51,9 +51,9 @@ html, body {
   transform: translateX(-50%);
   width: 100%; height: 100%;
   max-width: 520px;
-  background: rgba(15, 5, 25, 0.45); /* Velo scuro uniforme */
+  background: rgba(255, 255, 255, 0.05); 
   pointer-events: none;
-  z-index: -1; /* Sopra l'immagine, sotto i contenuti */
+  z-index: -1;
 }
 #content {
   position: relative;
@@ -61,8 +61,8 @@ html, body {
   flex-direction: column;
   align-items: center;
   padding: 8% 5% 5%;
-  gap: 35px;
-  z-index: 1; /* Il contenuto è in primo piano */
+  gap: 32px;
+  z-index: 1;
 }
 .section {
   width: 100%;
@@ -73,34 +73,33 @@ html, body {
 }
 .names {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(2.8rem, 12vw, 4.5rem);
-  color: #ffffff;
+  font-size: clamp(3rem, 13vw, 4.8rem);
+  color: var(--purple-dark);
   line-height: 1.1;
   text-align: center;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+  /* Bagliore chiaro dietro ai nomi per farli staccare dallo sfondo */
+  text-shadow: 0 0 15px rgba(255,255,255,0.9), 0 2px 4px rgba(255,255,255,0.6);
   margin-bottom: 10px;
 }
 .amp {
   display: block;
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(1.6rem, 6.5vw, 2.5rem);
-  color: var(--gold-light);
-  margin: -5px 0;
+  font-size: clamp(1.8rem, 7vw, 2.8rem);
+  color: var(--gold);
+  margin: -6px 0;
   text-align: center;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
 }
-/* Stile delle caselle di testo */
+/* Le caselle di testo ora sono trasparenti "effetto vetro" */
 .card {
   background: var(--card-bg);
-  border: 1px solid rgba(212,168,67,0.50); /* Bordo dorato */
-  border-radius: 12px;
-  padding: 6% 5%;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 7% 6%;
   width: 100%;
   text-align: center;
-  /* Effetto sfocato dietro la casella (solo per dispositivi che lo supportano) */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 .label {
   display: block;
@@ -108,27 +107,27 @@ html, body {
   font-size: clamp(0.55rem, 2vw, 0.7rem);
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 15px;
+  color: var(--gold-light);
+  margin-bottom: 18px;
   font-weight: 400;
 }
 .card p {
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
-  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  font-size: clamp(0.95rem, 3.6vw, 1.1rem);
   line-height: 1.7;
-  color: var(--text);
+  color: var(--text-dark);
 }
 .card p strong {
-  font-weight: 400; font-style: normal;
-  color: var(--gold-light);
+  font-weight: 700; font-style: normal;
+  color: var(--purple-dark);
 }
 .card p .small {
-  font-style: normal; font-weight: 300;
+  font-style: normal; font-weight: 400;
   color: var(--text-soft);
   font-size: clamp(0.8rem, 3vw, 0.9rem);
 }
-/* Timeline */
+/* Timeline adattata al tema chiaro */
 .timeline {
   width: 100%;
   display: flex;
@@ -150,9 +149,9 @@ html, body {
   flex-shrink: 0;
 }
 .tl-time {
-  font-weight: 400;
+  font-weight: 700;
   font-size: clamp(0.8rem, 3vw, 0.95rem);
-  color: var(--gold);
+  color: var(--purple-dark);
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
@@ -167,72 +166,72 @@ html, body {
   width: 10px; height: 10px;
   border-radius: 50%;
   background: var(--gold);
-  border: 2px solid var(--gold-light);
+  border: 2px solid #ffffff;
   flex-shrink: 0;
-  box-shadow: 0 0 6px rgba(212,168,67,0.6);
+  box-shadow: 0 0 5px rgba(170,124,17,0.5);
 }
 .tl-line {
-  width: 1px;
+  width: 2px;
   flex: 1;
-  min-height: 25px;
-  background: linear-gradient(to bottom, var(--gold-dim), transparent);
+  min-height: 28px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
   margin-top: 2px;
 }
 .tl-row:last-child .tl-line { display: none; }
 .tl-right {
   flex: 1;
   padding-left: 14px;
-  padding-bottom: 20px;
-  padding-top: 0px;
+  padding-bottom: 22px;
 }
 .tl-event {
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal;
   font-size: clamp(0.9rem, 3.2vw, 1.05rem);
-  color: var(--text);
+  color: var(--text-dark);
   line-height: 1.4;
 }
 .tl-desc {
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
-  font-size: clamp(0.75rem, 2.6vw, 0.85rem);
+  font-size: clamp(0.78rem, 2.6vw, 0.88rem);
   color: var(--text-soft);
   margin-top: 2px;
 }
-/* Mappa SVG */
+/* Mappa */
 .map-wrap {
   width: 100%;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid rgba(212,168,67,0.35);
-  margin-bottom: 10px;
+  border: 1px solid var(--card-border);
+  margin-bottom: 12px;
 }
 .map-wrap svg {
   display: block;
   width: 100%;
   height: auto;
 }
-/* Bottoni in generale */
+/* Pulsanti */
 .btn-action {
   display: block;
   width: 100%;
   font-size: clamp(0.7rem, 2.5vw, 0.8rem);
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
   padding: 14px 16px;
-  border-radius: 6px;
-  color: var(--gold-light);
-  background: rgba(212,168,67,0.15);
-  border: 1px solid rgba(212,168,67,0.5);
+  border-radius: 8px;
+  color: var(--purple-dark);
+  background: rgba(212, 168, 67, 0.2);
+  border: 1px solid var(--gold);
   transition: all 0.2s ease;
   margin-bottom: 12px;
 }
 .btn-action:hover, .btn-action:active {
-  background: rgba(212,168,67,0.85);
-  color: var(--purple-dark);
+  background: var(--purple-dark);
+  color: #ffffff;
+  border-color: var(--purple-dark);
 }
 .buttons-row {
   display: flex;
@@ -242,11 +241,11 @@ html, body {
 }
 .closing {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(2rem, 7.5vw, 2.8rem);
-  color: var(--gold-light);
+  font-size: clamp(2.2rem, 8vw, 3rem);
+  color: var(--purple-dark);
   text-align: center;
   line-height: 1.3;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
   margin: 10px 0;
 }
 </style>
@@ -325,80 +324,37 @@ html, body {
     </div>
 
     <div class="section">
-      <div class="card" style="padding-bottom: 5%;">
+      <div class="card" style="padding-bottom: 6%;">
         <span class="label">🗺️ Come arrivare</span>
         <div class="map-wrap">
-          <svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg" style="background:#1e0a30;">
+          <svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg" style="background:#20052e;">
             <defs>
               <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#3a1a55" stop-opacity="1"/>
-                <stop offset="100%" stop-color="#1a0828" stop-opacity="1"/>
+                <stop offset="0%" stop-color="#4a2560" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#20052e" stop-opacity="1"/>
               </radialGradient>
             </defs>
             <rect width="360" height="200" fill="url(#glow)"/>
             <circle cx="20" cy="15" r="1" fill="#f0d98a" opacity="0.7"/>
-            <circle cx="50" cy="8" r="0.8" fill="#f0d98a" opacity="0.5"/>
             <circle cx="90" cy="20" r="1" fill="#f0d98a" opacity="0.6"/>
-            <circle cx="130" cy="10" r="0.8" fill="#f0d98a" opacity="0.4"/>
             <circle cx="200" cy="18" r="1" fill="#f0d98a" opacity="0.7"/>
-            <circle cx="250" cy="8" r="0.8" fill="#f0d98a" opacity="0.5"/>
             <circle cx="310" cy="15" r="1" fill="#f0d98a" opacity="0.6"/>
-            <circle cx="340" cy="25" r="0.8" fill="#f0d98a" opacity="0.4"/>
-            <circle cx="160" cy="5" r="0.6" fill="#f0d98a" opacity="0.5"/>
-            <circle cx="280" cy="30" r="0.6" fill="#f0d98a" opacity="0.4"/>
-            <path d="M0,155 Q90,145 180,158 Q270,170 360,155 L360,180 Q270,195 180,182 Q90,168 0,178 Z" fill="#2a4a7a" opacity="0.5"/>
-            <line x1="30" y1="120" x2="330" y2="120" stroke="#4a3060" stroke-width="8"/>
-            <line x1="30" y1="120" x2="330" y2="120" stroke="#5a3870" stroke-width="6"/>
-            <line x1="180" y1="60" x2="180" y2="155" stroke="#3a2050" stroke-width="6"/>
-            <line x1="0" y1="90" x2="120" y2="120" stroke="#3a2050" stroke-width="5"/>
-            <line x1="240" y1="120" x2="360" y2="95" stroke="#3a2050" stroke-width="5"/>
-            <text x="180" y="116" font-family="sans-serif" font-size="7" fill="#c8a8d8" text-anchor="middle" opacity="0.9">Via Capitello</text>
-            <g opacity="0.8">
-              <circle cx="130" cy="90" r="10" fill="#1a4a20"/>
-              <circle cx="145" cy="85" r="8" fill="#1e5a24"/>
-              <circle cx="118" cy="85" r="7" fill="#1a4a20"/>
-              <circle cx="160" cy="92" r="9" fill="#1e5a24"/>
-              <circle cx="105" cy="92" r="8" fill="#163a1a"/>
-              <circle cx="175" cy="86" r="7" fill="#1a4a20"/>
-            </g>
+            <path d="M0,155 Q90,145 180,158 Q270,170 360,155 L360,180 Q270,195 180,182 Q90,168 0,178 Z" fill="#2a4a7a" opacity="0.4"/>
+            <line x1="30" y1="120" x2="330" y2="120" stroke="#4a3060" stroke-width="6"/>
+            <line x1="180" y1="60" x2="180" y2="155" stroke="#3a2050" stroke-width="4"/>
+            <text x="180" y="115" font-family="sans-serif" font-size="8" fill="#dfc5f0" text-anchor="middle">Via Capitello</text>
             <g transform="translate(260,55)">
               <rect x="0" y="20" width="18" height="35" fill="#3a1a55" stroke="#6a3a8a" stroke-width="0.8"/>
               <polygon points="9,0 -4,22 22,22" fill="#5a2a7a"/>
-              <rect x="6" y="30" width="6" height="8" rx="3" fill="#f0d98a" opacity="0.8"/>
-              <rect x="-8" y="32" width="10" height="23" fill="#2a1040" stroke="#5a2a7a" stroke-width="0.6"/>
-              <polygon points="3,22 -10,34 14,34" fill="#4a1a6a"/>
-              <rect x="16" y="35" width="10" height="20" fill="#2a1040" stroke="#5a2a7a" stroke-width="0.6"/>
-              <polygon points="21,25 10,37 32,37" fill="#4a1a6a"/>
-              <line x1="9" y1="0" x2="9" y2="-8" stroke="#d4a843" stroke-width="0.8"/>
-              <polygon points="9,-8 18,-5 9,-2" fill="#d4a843"/>
             </g>
             <g transform="translate(178,108)">
-              <circle cx="0" cy="0" r="10" fill="#d4a843" opacity="0.25"/>
-              <circle cx="0" cy="0" r="7" fill="#d4a843" opacity="0.5"/>
-              <circle cx="0" cy="0" r="4" fill="#f0d98a"/>
-              <circle cx="0" cy="0" r="10" fill="none" stroke="#d4a843" stroke-width="1.5" opacity="0.6">
-                <animate attributeName="r" from="8" to="16" dur="2s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" from="0.6" to="0" dur="2s" repeatCount="indefinite"/>
-              </circle>
+              <circle cx="0" cy="0" r="6" fill="#d4a843"/>
             </g>
-            <rect x="120" y="132" width="120" height="18" rx="4" fill="#2a1038" opacity="0.85"/>
+            <rect x="120" y="132" width="120" height="18" rx="4" fill="#3a154d"/>
             <text x="180" y="144" font-family="sans-serif" font-size="8.5" fill="#f0d98a" text-anchor="middle" font-weight="bold">Parco Gambrinus</text>
-            <text x="180" y="172" font-family="sans-serif" font-size="7" fill="#c8a8d8" text-anchor="middle" opacity="0.7">San Polo di Piave (TV)</text>
-            <g transform="translate(320,50)" opacity="0.7">
-              <rect x="-5" y="0" width="10" height="14" rx="2" fill="#f0d98a" opacity="0.9"/>
-              <line x1="0" y1="-4" x2="0" y2="0" stroke="#d4a843" stroke-width="1"/>
-              <polygon points="-5,14 5,14 3,18 -3,18" fill="#d4a843" opacity="0.6"/>
-              <circle cx="0" cy="7" r="3" fill="#fff8e0" opacity="0.8"/>
-            </g>
-            <g transform="translate(35,50)" opacity="0.6">
-              <rect x="-5" y="0" width="10" height="14" rx="2" fill="#f0d98a" opacity="0.9"/>
-              <line x1="0" y1="-4" x2="0" y2="0" stroke="#d4a843" stroke-width="1"/>
-              <polygon points="-5,14 5,14 3,18 -3,18" fill="#d4a843" opacity="0.6"/>
-              <circle cx="0" cy="7" r="3" fill="#fff8e0" opacity="0.8"/>
-            </g>
           </svg>
         </div>
-        <a class="btn-action" href="https://www.google.com/maps/search/?api=1&query=Parco+Gambrinus+San+Polo+di+Piave" target="_blank" style="margin-bottom: 0;">
+        <a class="btn-action" href="https://maps.google.com/?q=Parco+Gambrinus+San+Polo+di+Piave" target="_blank" style="margin-bottom: 0;">
           📍 Apri in Google Maps
         </a>
       </div>
@@ -418,7 +374,7 @@ html, body {
           ♡ Compila il modulo RSVP
         </a>
 
-        <div style="border-top:1px solid rgba(212,168,67,0.3); padding-top:18px; margin-top: 5px;">
+        <div style="border-top:1px solid rgba(170,124,17,0.25); padding-top:18px; margin-top: 5px;">
           <span class="label" style="margin-bottom:8px;">🎁 Un pensiero per noi ✈️</span>
           <p style="margin-bottom:15px;">
             Se desiderate farci un dono,<br>
@@ -430,14 +386,14 @@ html, body {
             🎁 Contribuisci al viaggio di nozze
           </a>
           
-          <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px; margin-top:10px;">
+          <div style="background: rgba(255,255,255,0.4); padding: 14px; border-radius: 10px; margin-top:10px; border: 1px solid rgba(170,124,17,0.15);">
             <span class="label" style="margin-bottom:8px; font-size: 0.6rem;">🏦 Coordinate bancarie</span>
-            <p style="font-style:normal; font-size:clamp(0.75rem,2.8vw,0.85rem); color:var(--text); line-height: 1.4;">
-              Intestato a: <strong style="color:var(--gold-light);">Erika / Elisabetta</strong><br>
-              IBAN: <strong style="color:var(--gold-light); letter-spacing:0.05em; font-size: 0.9em;">IT00 X000 0000 0000 0000 0000 000</strong>
+            <p style="font-style:normal; font-size:clamp(0.75rem,2.8vw,0.85rem); color:var(--text-dark); line-height: 1.5;">
+              Intestato a: <strong style="color:var(--purple-dark);">Erika / Elisabetta</strong><br>
+              IBAN: <strong style="color:var(--purple-dark); letter-spacing:0.02em; font-size: 0.95em; font-style: normal;">IT00 X000 0000 0000 0000 0000 000</strong>
             </p>
-            <p style="font-size:clamp(0.7rem,2.4vw,0.75rem); margin-top:8px; color:var(--text-soft);">
-              <span class="small">Causale: Viaggio di nozze Erika & Elisabetta 04/09/2026</span>
+            <p style="font-size:clamp(0.7rem,2.4vw,0.75rem); margin-top:8px; color:var(--text-soft); font-style: italic;">
+              Causale: Viaggio di nozze Erika & Elisabetta 04/09/2026
             </p>
           </div>
         </div>
@@ -446,10 +402,10 @@ html, body {
 
     <div class="section" style="margin-bottom: 20px;">
       <div class="buttons-row">
-        <a class="btn-action" href="https://wa.me/393429435775?text=Ciao!%20Vi%20scrivo%20per%20il%20matrimonio%20del%204%20settembre%20%F0%9F%A5%82" target="_blank" style="background: var(--card-bg);">
+        <a class="btn-action" href="https://wa.me/393429435775?text=Ciao!%20Vi%20scrivo%20per%20il%20matrimonio%20del%204%20settembre%20%F0%9F%A5%82" target="_blank">
           💬 Scrivici su WhatsApp
         </a>
-        <a class="btn-action" href="tel:+393429435775" style="background: var(--card-bg);">
+        <a class="btn-action" href="tel:+393429435775">
           📞 Chiamaci
         </a>
       </div>
