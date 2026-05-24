@@ -313,8 +313,122 @@ html, body {
         <span class="label" style="display:block; padding: 14px 5% 0;">Dove</span>
 
         <!-- MAPPA (INVARIATA) -->
+     <!-- 4. MAPPA STILIZZATA -->
+    <div class="section">
+      <div class="card" style="padding:0; overflow:hidden;">
+        <span class="label" style="display:block; padding: 14px 5% 0;">Come arrivare</span>
         <div class="map-wrap">
-          <!-- (qui rimane ESATTAMENTE il tuo SVG identico) -->
+          <!-- Mappa SVG stilizzata a tema viola/oro del Parco Gambrinus -->
+          <svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg" style="background:#1e0a30;">
+            <!-- Sfondo cielo notturno -->
+            <defs>
+              <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#3a1a55" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#1a0828" stop-opacity="1"/>
+              </radialGradient>
+            </defs>
+            <rect width="360" height="200" fill="url(#glow)"/>
+            <!-- stelle -->
+            <circle cx="20" cy="15" r="1" fill="#f0d98a" opacity="0.7"/>
+            <circle cx="50" cy="8" r="0.8" fill="#f0d98a" opacity="0.5"/>
+            <circle cx="90" cy="20" r="1" fill="#f0d98a" opacity="0.6"/>
+            <circle cx="130" cy="10" r="0.8" fill="#f0d98a" opacity="0.4"/>
+            <circle cx="200" cy="18" r="1" fill="#f0d98a" opacity="0.7"/>
+            <circle cx="250" cy="8" r="0.8" fill="#f0d98a" opacity="0.5"/>
+            <circle cx="310" cy="15" r="1" fill="#f0d98a" opacity="0.6"/>
+            <circle cx="340" cy="25" r="0.8" fill="#f0d98a" opacity="0.4"/>
+            <circle cx="160" cy="5" r="0.6" fill="#f0d98a" opacity="0.5"/>
+            <circle cx="280" cy="30" r="0.6" fill="#f0d98a" opacity="0.4"/>
+
+            <!-- Fiume Piave (sfondo) -->
+            <path d="M0,155 Q90,145 180,158 Q270,170 360,155 L360,180 Q270,195 180,182 Q90,168 0,178 Z"
+                  fill="#2a4a7a" opacity="0.5"/>
+
+            <!-- Strade principali -->
+            <!-- Via Capitello (orizzontale) -->
+            <line x1="30" y1="120" x2="330" y2="120" stroke="#4a3060" stroke-width="8"/>
+            <line x1="30" y1="120" x2="330" y2="120" stroke="#5a3870" stroke-width="6" stroke-dasharray="none"/>
+            <!-- Via secondaria verticale -->
+            <line x1="180" y1="60" x2="180" y2="155" stroke="#3a2050" stroke-width="6"/>
+            <!-- Strada A28 (diagonale) -->
+            <line x1="0" y1="90" x2="120" y2="120" stroke="#3a2050" stroke-width="5"/>
+            <line x1="240" y1="120" x2="360" y2="95" stroke="#3a2050" stroke-width="5"/>
+
+            <!-- Etichette strade -->
+            <text x="180" y="116" font-family="sans-serif" font-size="7" fill="#c8a8d8"
+                  text-anchor="middle" opacity="0.9">Via Capitello</text>
+
+            <!-- Alberi decorativi (parco) -->
+            <g opacity="0.8">
+              <circle cx="130" cy="90" r="10" fill="#1a4a20"/>
+              <circle cx="145" cy="85" r="8" fill="#1e5a24"/>
+              <circle cx="118" cy="85" r="7" fill="#1a4a20"/>
+              <circle cx="160" cy="92" r="9" fill="#1e5a24"/>
+              <circle cx="105" cy="92" r="8" fill="#163a1a"/>
+              <circle cx="175" cy="86" r="7" fill="#1a4a20"/>
+            </g>
+
+            <!-- Castello/Torre decorativa (tema Rapunzel) -->
+            <g transform="translate(260,55)">
+              <!-- Torre principale -->
+              <rect x="0" y="20" width="18" height="35" fill="#3a1a55" stroke="#6a3a8a" stroke-width="0.8"/>
+              <!-- Tetto conico -->
+              <polygon points="9,0 -4,22 22,22" fill="#5a2a7a"/>
+              <!-- Finestra -->
+              <rect x="6" y="30" width="6" height="8" rx="3" fill="#f0d98a" opacity="0.8"/>
+              <!-- Torri laterali piccole -->
+              <rect x="-8" y="32" width="10" height="23" fill="#2a1040" stroke="#5a2a7a" stroke-width="0.6"/>
+              <polygon points="3,22 -10,34 14,34" fill="#4a1a6a"/>
+              <rect x="16" y="35" width="10" height="20" fill="#2a1040" stroke="#5a2a7a" stroke-width="0.6"/>
+              <polygon points="21,25 10,37 32,37" fill="#4a1a6a"/>
+              <!-- Bandierina -->
+              <line x1="9" y1="0" x2="9" y2="-8" stroke="#d4a843" stroke-width="0.8"/>
+              <polygon points="9,-8 18,-5 9,-2" fill="#d4a843"/>
+            </g>
+
+            <!-- PIN posizione Parco Gambrinus -->
+            <g transform="translate(178,108)">
+              <circle cx="0" cy="0" r="10" fill="#d4a843" opacity="0.25"/>
+              <circle cx="0" cy="0" r="7" fill="#d4a843" opacity="0.5"/>
+              <circle cx="0" cy="0" r="4" fill="#f0d98a"/>
+              <!-- pulsazione animata -->
+              <circle cx="0" cy="0" r="10" fill="none" stroke="#d4a843" stroke-width="1.5" opacity="0.6">
+                <animate attributeName="r" from="8" to="16" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" from="0.6" to="0" dur="2s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+
+            <!-- Etichetta Parco Gambrinus -->
+            <rect x="120" y="132" width="120" height="18" rx="4"
+                  fill="#2a1038" opacity="0.85"/>
+            <text x="180" y="144" font-family="sans-serif" font-size="8.5" fill="#f0d98a"
+                  text-anchor="middle" font-weight="bold">Parco Gambrinus</text>
+
+            <!-- Etichetta San Polo di Piave -->
+            <text x="180" y="172" font-family="sans-serif" font-size="7" fill="#c8a8d8"
+                  text-anchor="middle" opacity="0.7">San Polo di Piave (TV)</text>
+
+            <!-- Lanternina decorativa angolo -->
+            <g transform="translate(320,50)" opacity="0.7">
+              <rect x="-5" y="0" width="10" height="14" rx="2" fill="#f0d98a" opacity="0.9"/>
+              <line x1="0" y1="-4" x2="0" y2="0" stroke="#d4a843" stroke-width="1"/>
+              <polygon points="-5,14 5,14 3,18 -3,18" fill="#d4a843" opacity="0.6"/>
+              <circle cx="0" cy="7" r="3" fill="#fff8e0" opacity="0.8"/>
+            </g>
+            <g transform="translate(35,50)" opacity="0.6">
+              <rect x="-5" y="0" width="10" height="14" rx="2" fill="#f0d98a" opacity="0.9"/>
+              <line x1="0" y1="-4" x2="0" y2="0" stroke="#d4a843" stroke-width="1"/>
+              <polygon points="-5,14 5,14 3,18 -3,18" fill="#d4a843" opacity="0.6"/>
+              <circle cx="0" cy="7" r="3" fill="#fff8e0" opacity="0.8"/>
+            </g>
+          </svg>
+          <a class="map-btn"
+             href="https://maps.google.com/?q=Parco+Gambrinus+Via+Capitello+18+San+Polo+di+Piave"
+             target="_blank">📍 &nbsp;Apri in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  
 
           <!-- SOLO bottone sotto -->
           <a class="map-btn"
