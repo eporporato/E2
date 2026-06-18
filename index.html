@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Erika &amp; Elisabetta ♡ 4 Settembre 2026</title>
+<title>Erika & Elisabetta ♡ 4 Settembre 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -33,17 +33,16 @@ body{
   -webkit-text-size-adjust:100%;
 }
 
-body{
+.bg-fixed{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
   background-image:url('rapunzel.jpg');
   background-size:cover;
   background-position:center 10%;
-  background-attachment:fixed;
   background-repeat:no-repeat;
 }
-@supports (-webkit-touch-callout: none){
-  body{background-attachment:scroll;background-position:center top;}
-}
-.bg-fixed{position:fixed;inset:0;z-index:0;pointer-events:none;}
 .bg-fixed img{display:none;}
 .bg-fixed::after{
   content:'';position:absolute;inset:0;z-index:1;
@@ -268,36 +267,6 @@ body{
 }
 .maps-btn:hover{background:rgba(107,45,139,0.32);transform:translateY(-1px)}
 
-/* ─── HOTEL BOX ─── */
-.hotel-inner{
-  background:rgba(10,4,22,0.38);
-  border:1px solid rgba(201,168,76,0.28);
-  border-radius:14px;
-  padding:1.4rem 1.4rem 1.2rem;
-  margin-top:1.2rem;
-  text-align:center;
-}
-.hotel-name{
-  font-family:var(--title-font);
-  font-size:1.1rem;
-  color:var(--gold-light);
-  letter-spacing:0.08em;
-  margin-bottom:0.2rem;
-}
-.hotel-address{
-  font-family:var(--body-font);
-  font-size:0.95rem;
-  color:rgba(255,255,255,0.6);
-  margin-bottom:0.9rem;
-}
-.hotel-note{
-  font-family:var(--body-font);
-  font-size:1rem;
-  color:rgba(255,255,255,0.82);
-  line-height:1.6;
-  margin-bottom:1rem;
-}
-
 /* ─── TIMELINE ─── */
 .timeline{position:relative;padding-left:2.4rem;margin-top:0.5rem}
 .timeline::before{content:'';position:absolute;left:0.85rem;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--lavender),var(--gold),var(--lavender))}
@@ -340,15 +309,6 @@ body{
 .video-deco-flowers{position:absolute;pointer-events:none;opacity:0.55;}
 .video-deco-flowers--left{left:-2px;top:50%;transform:translateY(-50%)}
 .video-deco-flowers--right{right:-2px;top:50%;transform:translateY(-50%)}
-.video-caption{
-  font-family:var(--body-font);
-  font-style:normal;
-  font-size:1rem;
-  color:rgba(255,255,255,0.65);
-  margin-top:0.8rem;
-  letter-spacing:0.04em;
-  line-height:1.5;
-}
 .video-quote{
   font-family:var(--body-font);
   font-size:1.05rem;
@@ -442,8 +402,9 @@ footer p{
   .cd-num{font-size:1.6rem}
   .regalo-inner p{font-size:1rem}
   .video-quote{font-size:1rem}
-  .hotel-inner{padding:1.1rem}
 }
+
+.gift-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:1.2rem}.gift-card{background:rgba(10,4,22,.45);border:1px solid rgba(201,168,76,.25);border-radius:16px;padding:1rem;text-align:center}.gift-card h4{color:var(--gold-light);font-family:var(--title-font);font-size:.9rem;margin:.5rem 0}.gift-card p{font-size:.95rem;color:rgba(255,255,255,.75)}@keyframes giftPop{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
 </style>
 </head>
 <body>
@@ -454,8 +415,8 @@ footer p{
 <div class="page">
 
 <section class="hero">
-  <h1 class="hero-names">Erika<span class="hero-amp">&amp;</span>Elisabetta</h1>
-  <p class="hero-date">&#9825; &nbsp;4 Settembre 2026&nbsp; &#9825;</p>
+  <h1 class="hero-names">Erika<span class="hero-amp">&</span>Elisabetta</h1>
+  <p class="hero-date">♡ &nbsp;4 Settembre 2026&nbsp; ♡</p>
   <p class="hero-tagline">
     Dopo anni di viaggi, avventure e sogni condivisi,
     siamo pronte a iniziare un nuovo capitolo della nostra storia ✨
@@ -491,15 +452,12 @@ footer p{
     <h2>Finalmente ci sposiamo!</h2>
     <p>
       Ci sono momenti in cui ci si guarda e si decide di camminare insieme per sempre. 🌸<br>
-      Questo è il nostro momento, e non vediamo l'ora di viverlo con voi, 
+      Questo è il nostro momento, e non vediamo l'ora di viverlo con voi,
       le persone che rendono unico il nostro cammino. ✨
     </p>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     SAVE THE DATE + DOVE CI SPOSIAMO (sezione unificata)
-     ═══════════════════════════════════════════════════════════ -->
 <div class="section reveal">
   <div class="video-section-box">
     <svg width="32" height="44" viewBox="0 0 36 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
@@ -529,7 +487,6 @@ footer p{
       </svg>
     </div>
 
-    <!-- Video -->
     <div class="video-frame-wrap">
       <div class="video-corner video-corner--tl"></div>
       <div class="video-corner video-corner--tr"></div>
@@ -565,10 +522,8 @@ footer p{
       e quel sogno porta il tuo nome. 💛
     </p>
 
-    <!-- Separatore -->
     <div class="std-divider" style="margin-top:1.4rem"></div>
 
-    <!-- Dove ci sposiamo (integrato) -->
     <p class="section-title" style="margin-top:1.4rem;font-size:clamp(1.05rem,3vw,1.3rem)">Dove ci sposiamo</p>
     <p style="font-family:var(--title-font);font-size:1rem;color:var(--gold-light);letter-spacing:0.06em;margin:0.5rem 0 0.2rem">
       🌳 🦢 Parco Gambrinus 🌿 🦚
@@ -581,7 +536,6 @@ footer p{
       lo scenario perfetto per il giorno più magico della nostra vita. 🌅🍃
     </p>
 
-    <!-- Mappa -->
     <div class="map-inner">
       <svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -668,10 +622,8 @@ footer p{
       </div>
     </div>
 
-    <!-- Separatore -->
     <div class="std-divider" style="margin-top:1.4rem"></div>
 
-    <!-- Countdown -->
     <div class="date-pills" style="margin-top:1.2rem">
       <div class="date-pill">🗓 Venerdì 04 Settembre 2026</div>
     </div>
@@ -681,63 +633,6 @@ footer p{
       <div class="cd-unit"><span class="cd-num" id="cd-min">--</span><span class="cd-label">minuti</span></div>
     </div>
     <p class="section-body" style="margin-top:1rem;color:var(--lavender)">Segnati la data… e preparati a festeggiare con noi! ✨</p>
-  </div>
-</div>
-
-<div class="section reveal">
-  <div class="glass">
-    <svg class="section-icon" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M28,6 Q18,10 18,22 Q18,34 28,38 Q14,38 10,26 Q6,14 16,7 Q21,4 28,6Z" fill="#b388d8" opacity="0.85"/>
-      <circle cx="34" cy="10" r="2" fill="#f8e87c" opacity="0.9"/>
-      <circle cx="38" cy="20" r="1.3" fill="#f8e87c" opacity="0.7"/>
-      <circle cx="32" cy="28" r="1" fill="#f8e87c" opacity="0.6"/>
-      <circle cx="40" cy="8" r="0.8" fill="#f0d98a" opacity="0.55"/>
-      <polygon points="38,32 39.2,35.5 43,35.5 40,37.5 41.2,41 38,39 34.8,41 36,37.5 33,35.5 36.8,35.5" fill="#f0d98a" opacity="0.7" transform="scale(0.55) translate(31,18)"/>
-    </svg>
-    <h2 class="section-title">Dove dormirete</h2>
-    <p class="section-subtitle">Tutto è pronto per voi 🌙</p>
-    <div class="section-line">
-      <svg viewBox="0 0 140 26" xmlns="http://www.w3.org/2000/svg" width="140" height="26" aria-hidden="true">
-        <line x1="0" y1="13" x2="54" y2="13" stroke="#c9a84c" stroke-width="0.8" stroke-opacity="0.5"/>
-        <line x1="86" y1="13" x2="140" y2="13" stroke="#c9a84c" stroke-width="0.8" stroke-opacity="0.5"/>
-        <circle cx="70" cy="13" r="5.5" fill="#c9a84c"/>
-        <line x1="70" y1="1" x2="70" y2="7" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="70" y1="19" x2="70" y2="25" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="58" y1="13" x2="64" y2="13" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="76" y1="13" x2="82" y2="13" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="61.8" y1="4.8" x2="66" y2="9" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/>
-        <line x1="78.2" y1="4.8" x2="74" y2="9" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/>
-        <line x1="61.8" y1="21.2" x2="66" y2="17" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/>
-        <line x1="78.2" y1="21.2" x2="74" y2="17" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <p class="section-body">
-      Avete viaggiato per stare con noi — e noi vogliamo
-      prenderci cura di voi. La notte del 4 settembre
-      sarete nostri ospiti all'Hotel Villa Maternini. 🛏️✨
-    </p>
-
-    <div class="hotel-inner">
-      <div class="hotel-name">🏨 Hotel Villa Maternini</div>
-      <div class="hotel-address" style="margin-top:0.25rem"> Via Pier Antonio Mutti, 7, Vazzola (TV)</div>
-      <p class="hotel-note">
-        Tutti i dettagli pratici — orari del check-in, informazioni sulla camera
-        e ogni altra cosa utile — vi verranno comunicati prossimamente. 💌
-      </p>
-      <div class="btn-row" style="margin-top:0.6rem">
-        <a class="btn btn-primary" href="https://www.villamaternini.com/" target="_blank" rel="noopener">
-          🏨 Sito dell'hotel
-        </a>
-        <a class="btn btn-dark" href="https://maps.google.com/?q=Hotel+Villa+Maternini,+San+Polo+di+Piave" target="_blank" rel="noopener">
-          <svg width="10" height="10" viewBox="0 0 40 54" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <polygon points="20,8 5,22 35,22" fill="#f0d98a"/>
-            <rect x="7" y="22" width="26" height="22" rx="2" fill="#f0d98a"/>
-            <rect x="14" y="30" width="12" height="10" rx="5 5 0 0" fill="#3d0e60" opacity="0.7"/>
-          </svg>
-          Google Maps
-        </a>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -770,7 +665,7 @@ footer p{
         <line x1="78.2" y1="21.2" x2="74" y2="17" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/>
       </svg>
     </div>
-    <p class="section-body" style="margin-bottom:1.4rem">Una giornata pensata per condividere emozioni, 
+    <p class="section-body" style="margin-bottom:1.4rem">Una giornata pensata per condividere emozioni,
       sorrisi e momenti speciali con le persone che amiamo. 💫</p>
     <div class="timeline">
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">16:00</div><div class="tl-title">🌟 Arrivo degli ospiti 🏮 </div></div>
@@ -779,7 +674,7 @@ footer p{
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">20:00</div><div class="tl-title">🍽️ Cena 🕯️</div></div>
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">23:00</div><div class="tl-title">🎂 Taglio torta 🌸 </div></div>
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">23:30</div><div class="tl-title">💃 Si balla con l'accompagnamento di Leslie in the Cloud 🎶✨</div></div>
-      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">01:00</div><div class="tl-title">🌙 Fine serata  – stanchi ma felici!🏮</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">01:00</div><div class="tl-title">🌙 Fine serata – stanchi ma felici! 🏮</div></div>
     </div>
   </div>
 </div>
@@ -859,20 +754,25 @@ footer p{
     </div>
     <p class="section-body">
       Il regalo più grande sarà la vostra presenza 💛 <br>
-      Ma se desiderate contribuire alla nostra nuova vita insieme, abbiamo racchiuso i nostri desideri in una lista nozze online: 
+      Ma se desiderate contribuire alla nostra nuova vita insieme, abbiamo racchiuso i nostri desideri in una lista nozze online:
       potrete così contribuire al nostro viaggio di nozze
       — la nostra prima avventura da mogli — o ad altri piccoli progetti per la nostra vita insieme. ✈️🌍🏡💛
     </p>
+    <div class="gift-grid">
+      <div class="gift-card"><div style="font-size:2rem">✈️</div><h4>Viaggio di nozze</h4><button class="btn btn-gold" onclick="openGiftModal(0)">Scopri</button></div>
+      <div class="gift-card"><div style="font-size:2rem">🏰</div><h4>Disneyland Paris</h4><button class="btn btn-gold" onclick="openGiftModal(1)">Scopri</button></div>
+      <div class="gift-card"><div style="font-size:2rem">🖼️</div><h4>Cornice digitale</h4><button class="btn btn-gold" onclick="openGiftModal(2)">Scopri</button></div>
+      <div class="gift-card"><div style="font-size:2rem">🎨</div><h4>Quadro personalizzato</h4><button class="btn btn-gold" onclick="openGiftModal(3)">Scopri</button></div>
+    </div>
     <div class="regalo-inner">
       <p>🏮 Dai colore ai nostri sogni 🌸</p>
-      <a class="btn btn-gold" href="https://given2.us/E2" target="_blank">🎁 Visualizza la nostra Lista Nozze</a>
     </div>
   </div>
 </div>
 
 <footer>
-  <div class="footer-names">Erika &amp; Elisabetta</div>
-  <p>4 Settembre 2026 · San Polo di Piave</p>
+  <div class="footer-names">Erika & Elisabetta</div>
+  <p>4 Settembre 2026 · Parco Gambrinus</p>
   <p style="margin-top:0.4rem">Non vediamo l'ora di condividere questa magia con voi 🏰✨</p>
   <div class="footer-lanterns">
     <svg width="18" height="26" viewBox="0 0 36 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -890,6 +790,45 @@ footer p{
     </svg>
   </div>
 </footer>
+
+<div id="giftModal"
+     style="display:none;position:fixed;inset:0;background:rgba(5,2,10,.88);z-index:9999;align-items:center;justify-content:center;padding:1rem">
+  <div style="
+      background:rgba(42,8,72,.97);
+      border:1px solid var(--gold);
+      border-radius:22px;
+      padding:2rem;
+      max-width:430px;
+      width:100%;
+      text-align:center;
+      box-shadow:0 15px 40px rgba(0,0,0,.5);">
+    <div id="gModalTag" style="font-size:1.1rem;margin-bottom:.8rem;color:var(--gold-light)"></div>
+    <h3 id="gModalTitle" style="margin-bottom:1rem;color:white;"></h3>
+    <p id="gModalDesc" style="line-height:1.7;margin-bottom:1.5rem;color:rgba(255,255,255,.9)"></p>
+    <div style="
+        background:rgba(255,255,255,.05);
+        border:1px solid rgba(201,168,76,.35);
+        border-radius:14px;
+        padding:1rem;
+        margin-bottom:1rem;">
+      <div style="font-family:var(--title-font);color:var(--gold-light);margin-bottom:.5rem;">Intestatario & IBAN</div>
+      <div style="font-size:0.95rem;margin-bottom:0.4rem;">Elisabetta Russo</div>
+      <div id="gModalIban" style="word-break:break-word;font-size:.95rem;line-height:1.6;">IT32 U062 3002 0410 0001 5606 003</div>
+    </div>
+    <div style="
+        background:rgba(255,255,255,.05);
+        border:1px solid rgba(201,168,76,.25);
+        border-radius:14px;
+        padding:1rem;
+        margin-bottom:1.5rem;">
+      <div style="font-family:var(--title-font);color:var(--gold-light);margin-bottom:.5rem;">Causale</div>
+      <div id="gModalCausale" style="line-height:1.6;"></div>
+    </div>
+    <button class="btn btn-gold" style="width:100%;margin-bottom:.7rem" onclick="copyIBAN()">📋 Copia IBAN</button>
+    <button class="btn btn-gold" style="width:100%;margin-bottom:.7rem" onclick="copyCausale()">📝 Copia causale</button>
+    <button class="btn btn-dark" style="width:100%" onclick="closeGiftModal()">Chiudi</button>
+  </div>
+</div>
 
 </div>
 <script>
@@ -954,6 +893,43 @@ const obs = new IntersectionObserver(es => {
   es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
 }, {threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+const giftData = [
+  { tag:"✈️ Viaggio di nozze", title:"Contributo al viaggio di nozze", desc:"La nostra prima avventura da mogli.", causale:"Regalo Nozze Erika e Elisabetta - Viaggio di Nozze" },
+  { tag:"🏰 Esperienza Disney", title:"Disneyland Paris", desc:"Il nostro posto del cuore.", causale:"Regalo Nozze Erika e Elisabetta - Disneyland Paris" },
+  { tag:"🖼️ Per la nostra casa", title:"Cornice digitale", desc:"Per custodire i nostri ricordi.", causale:"Regalo Nozze Erika e Elisabetta - Cornice Digitale" },
+  { tag:"🎨 Arte personalizzata", title:"Quadro personalizzato", desc:"Un'opera unica.", causale:"Regalo Nozze Erika e Elisabetta - Quadro Personalizzato" }
+];
+
+let currentGift = null;
+
+function openGiftModal(i){
+  currentGift = giftData[i];
+  document.getElementById('gModalTag').innerText = currentGift.tag;
+  document.getElementById('gModalTitle').innerText = currentGift.title;
+  document.getElementById('gModalDesc').innerText = currentGift.desc;
+  document.getElementById('gModalCausale').innerText = currentGift.causale;
+  document.getElementById('giftModal').style.display='flex';
+}
+
+function closeGiftModal(){
+  document.getElementById('giftModal').style.display='none';
+}
+
+function copyIBAN(){
+  navigator.clipboard.writeText("IT32U0623002041000015606003");
+  alert("IBAN copiato!");
+}
+
+function copyCausale(){
+  navigator.clipboard.writeText(currentGift.causale);
+  alert("Causale copiata!");
+}
+
+window.onclick = function(event){
+  const modal = document.getElementById('giftModal');
+  if(event.target === modal){ closeGiftModal(); }
+}
 </script>
 </body>
 </html>
